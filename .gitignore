@@ -14,7 +14,7 @@
 *.glo
 *.gls
 *.ist
-.fls
+*.fls
 *.log
 *.fdb_latexmk
 *.snm
