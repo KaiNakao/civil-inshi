@@ -1,4 +1,5 @@
 /out/
+.DS_Store*
 *.aux
 *.bbl
 *.blg
