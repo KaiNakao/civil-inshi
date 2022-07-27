@@ -1,0 +1,150 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{template}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+\subsubsection{}
+断面流速を$v$とすると、
+\begin{equation}
+  v = \frac{Q}{A} = \frac{Q}{a h^{\frac{3}{2}}}
+\end{equation}
+であるから、比エネルギー$E$は、
+\begin{equation}
+  E = \frac{v^2}{2g} + h = \frac{Q^2}{2g a^2 h^3} + h
+\end{equation}
+となる。
+
+\subsubsection{}
+式(2)を$h$で微分して、
+\begin{equation}
+  \frac{\partial E}{\partial h} = -\frac{3 Q^2}{2g a^2 h^4} + 1
+\end{equation}
+を得る。$h = h_c$において$\frac{\partial E}{\partial h} = 0$であるから、
+\begin{equation}
+  h_c = \left(\frac{3 Q^2}{2 g a^2}\right)^{\frac{1}{4}}
+\end{equation}
+となる。
+
+\subsubsection{}
+式(2),(4)より、
+\begin{equation}
+  E = \frac{1}{3} h_c^4 h^{-3} + h
+\end{equation}
+と表される。$h = h_c$をこれに代入して、
+\begin{equation}
+  E_c = \frac{1}{3} h_c^4 h_c^{-3} + h_c = \frac{4}{3} h_c
+\end{equation}
+となる。
+
+\subsection{}
+開水路の勾配を$I$、開水路断面の径心を$R$、断面流速を$v$とする。\par
+ここではManningの式$v = \frac{1}{n} R^{\frac{2}{3}}  I^{\frac{1}{2}}$により摩擦を評価する。
+$R = A/s$($s$は潤辺)を用いると、流量$Q$について、
+\begin{equation}
+  Q = A v = A \frac{1}{n} \left(\frac{A}{s}\right)^{\frac{2}{3}} I^{\frac{1}{2}}
+  = \frac{1}{n} A^{\frac{5}{3}} I^{\frac{1}{2}} s^{-\frac{2}{3}}
+\end{equation}
+を得る。したがって、$Q$を最大化するには$s$を最小化すればよい。
+$A$と$h$の間には$A = mh^2$、つまり$h = \sqrt{A/m}$が成り立つことを用いれば、
+\begin{equation}
+  s = 2 \sqrt{m^2 + 1} h = 2 \sqrt{A \left(m + \frac{1}{m}\right)}
+\end{equation}
+である。ここで、
+\begin{equation}
+  f(m) = m + \frac{1}{m}
+\end{equation}
+とおいて、これを最小化する。
+\begin{equation}
+  f^{\prime}(m) = 1 - \frac{1}{m^2}
+\end{equation}
+であり、これを0とすることにより、最適な$m$は$m = 1$である。
+
+\subsection{}
+\subsubsection{}
+断面流速を$v$とする。
+水路の摩擦が無視できるとき、エネルギー保存則
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d} x} \left(\frac{v^2}{2g} + h + z\right) = 0
+\end{equation}
+が成り立つ。これと$v = q/h$であることを用いると、
+\begin{equation}
+  \frac{\mathrm{d} z}{\mathrm{d} x}
+  = -\frac{\mathrm{d}}{\mathrm{d} x} \left(\frac{q^2}{2g h^2} + h\right)
+  = -\left(-\frac{q^2}{gh^3} + 1\right) \frac{\mathrm{d} h}{\mathrm{d} x}
+  = \left(\mathrm{Fr}^2 - 1\right) \frac{\mathrm{d} h}{\mathrm{d} x}
+\end{equation}
+が得られる。よって、
+\begin{equation}
+  \frac{\mathrm{d} h}{\mathrm{d} x} = \frac{1}{\mathrm{Fr}^2 - 1} \frac{\mathrm{d} z}{\mathrm{d} x}
+\end{equation}
+が成り立つ。したがって、
+\begin{equation}
+  \frac{\mathrm{d} H}{\mathrm{d} x} = \frac{\mathrm{d}}{\mathrm{d} x} (h + z)
+  = \left(\frac{1}{\mathrm{Fr}^2 - 1} + 1\right) \frac{\mathrm{d} z}{\mathrm{d} x}
+  = \frac{\mathrm{Fr}^2}{\mathrm{Fr}^2 - 1} \frac{\mathrm{d} z}{\mathrm{d} x}
+\end{equation}
+となる。
+
+\subsubsection{}
+常流を仮定すると、$\mathrm{Fr} < 1$である。式(14)より、$z$と$H$の増減は逆になる。
+上流側からマウンドのある区間にさしかかると、$z$が増加し$H$が減少し、マウンド頂部を越えると$z$が減少し$H$が増加する。
+エネルギー保存則より、マウンドの下流側では$H = h_0$であり、マウンドのある区間では水位が下がっていることになる。
+
+\subsubsection{}
+条件を満たすとき、エネルギー保存則より
+\begin{equation}
+  \frac{q^2}{2g h_c^2} + h_c + z_0 = \frac{q^2}{2g h_0^2} + h_0
+\end{equation}
+であり、
+\begin{equation}
+  z_0 = \frac{q^2}{2g} \left(\frac{1}{h_0^2} - \frac{1}{h_c^2}\right) + h_0 - h_c
+\end{equation}
+となる。
+
+\subsection{}
+\subsubsection{}
+運動量保存則により、
+\begin{equation}
+  \rho Q v_1 - \rho Q v_2 = \frac{1}{2} \rho g B_1 h_1^2 - \frac{1}{2} \rho g B_2 h_2^2
+\end{equation}
+が成り立つ。連続式$Q = B_1 h_1 v_1 = B_2 h_2 v_2$より、
+\begin{equation}
+  \rho B_1 h_1 v_1^2 - \rho B_2 h_2 v_2^2 = \frac{1}{2} \rho g B_1 h_1^2 - \frac{1}{2} \rho g B_2 h_2^2
+\end{equation}
+となる。
+
+\subsubsection{}
+連続式$B_1 h_1 v_1 = B_2 h_2 v_2$より、
+\begin{equation}
+  v_2 = \frac{B_1 h_1}{B_2 h_2} v_1 = \frac{1}{A C} v_1
+\end{equation}
+である。これと$h_2 = A h_1, B_2 = C B_1$を式(18)に代入して、
+\begin{equation}
+  \rho B_1 h_1 v_1^2 \left(1 - \frac{1}{A C}\right)
+  = \frac{1}{2} \rho g B_1 h_1^2 (1 - A^2 C)
+\end{equation}
+を得る。これより、
+\begin{equation}
+  \frac{v_1^2}{g h_1} = \frac{A C (1 - A^2 C)}{2 (A C - 1)}
+\end{equation}
+となるから、
+\begin{equation}
+  \mathrm{Fr}_1 = \sqrt{\frac{v_1^2}{g h_1}} = \sqrt{\frac{A C (1 - A^2 C)}{2 (A C - 1)}}
+\end{equation}
+である。
+
+\section{}
+\subsection{}
+\subsubsection{}
+
+
+\end{document}
