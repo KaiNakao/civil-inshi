@@ -1,0 +1,234 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2019分野3}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+開水路において、$v = v_s, v_n = 0$と表わせる。
+また、静水圧分布を仮定すれば、基準面水路床における圧力は$p = \rho g h$である。
+さらに定常流であるから$v$の時間変化はないとして、接線方向の運動方程式より、
+\begin{equation}
+  \frac{1}{2g} \frac{\partial v^2}{\partial s} 
+  = -\frac{\partial}{\partial s}(h + z)
+\end{equation}
+となる。これより、エネルギー保存則
+\begin{equation}
+  \frac{\partial}{\partial s} \left(\frac{v^2}{2g} + h + z\right) = 0
+\end{equation}
+が得られる。
+
+\subsection{}
+$v = q / h$より、
+\begin{equation}
+  E = \frac{v^2}{2g} + h
+  = \frac{q^2}{2g h^2} + h
+\end{equation}
+であり、これを微分すると、
+\begin{equation}
+  \frac{\partial E}{\partial h} = -\frac{q^2}{g h^3} + 1
+\end{equation}
+であることから、グラフは図1の通り。
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.3\hsize]{fig1.png}
+  \caption{比エネルギー$E$と水深$h$の関係}
+\end{figure}
+
+\subsection{}
+跳水前後の断面をそれぞれ断面1,断面2とする。これらの断面の間で運動量保存則
+\begin{equation}
+  \rho q (v_2 - v_1) 
+  = \frac{1}{2} \rho g h_1^2 - \frac{1}{2} \rho g h_2^2
+\end{equation}
+が成り立つ。$v_1 = q / h_1, v_2 = q / h_2$を代入し整理すると、
+\begin{equation}
+  q = \sqrt{\frac{1}{2} g h_1 h_2 (h_1 + h_2)}
+\end{equation}
+となる。$h_1 = 0.2 \mathrm{m}, h_2 = 0.8 \mathrm{m}, g = 9.8 \mathrm{m/s^2}$を代入すると、
+$q = 0.89 \mathrm{m^2/s}$である。この$q$を用いて、
+\begin{equation}
+  \Delta E = \left(\frac{q}{2g h_1^2} + h_1\right)
+  - \left(\frac{q}{2g h_2^2} + h_2\right) = 0.33 \mathrm{m}
+\end{equation}
+を得る。
+
+\subsection{}
+地球を球であると思えば、地球の半径を$R$として図2のように、$y = R (\varphi - \varphi_0)$、
+すなわち、$\varphi = y / R + \varphi_0$の関係が成り立つ。\par
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.3\hsize]{fig2.png}
+  \caption{$y$と$\phi$の関係}
+\end{figure}
+$f$を$y = 0$の近傍で1次近似すると、
+\begin{equation}
+  f \simeq f_0 + \left.\frac{\partial f}{\partial y}\right|_{y=0} y
+\end{equation}
+であるから、
+\begin{equation}
+  \beta = \left.\frac{\partial f}{\partial y}\right|_{y=0}
+  = \left.\frac{\mathrm{d} f}{\mathrm{d} \varphi}\right|_{\varphi = \varphi_0}
+  \left.\frac{\mathrm{d} \varphi}{\mathrm{d} y}\right|_{y=0} 
+  =\frac{2 \Omega \cos \varphi_0}{R}
+\end{equation}
+となる。数値を代入すると、
+\begin{equation}
+  \beta = \frac{2 \times \frac{2 \pi}{24 \times 3600} \times 0.71}{6.4 \times 10^6} = 1.6 \times 10^{-11}
+\end{equation}
+を得る。
+
+\subsection{}
+限界流では、$R_F = 1$より、$12 u = \beta a^2$である。したがって、
+\begin{equation}
+  a = \sqrt{\frac{12 u}{\beta}} = \sqrt{\frac{12 \times 12}{1.6 \times 10^{-11}}}
+  = 3 \times 10^6 \mathrm{m}
+\end{equation}
+となる。
+
+\subsection{}
+ジェット気流の幅の増加に伴って渦が発生し、流れが蛇行する。\par
+渦は一度発生すると渦度の保存によってなかなか消滅せず、ブロッキング現象の起こった状態の気象状態が持続する。
+ここに高気圧が停滞すれば乾燥天候の持続により干ばつが引き起こされ、相補的に停滞性のある低気圧が位置すれば降水が長期間続く。
+干ばつの社会的影響としては、水不足と農作物被害が挙げられる。大雨の社会的影響として、河川流量の増加に伴い水害が引き起こされる危険がある。
+
+\section{}
+\subsection{}
+流れが管軸方向に一様であるから$\frac{\partial u_z}{\partial z} = 0$、
+また、管軸まわりに対象であるから、$\frac{\partial u_{\theta}}{\partial \theta} = 0$
+が成り立つ。
+これを連続式に代入すると、
+\begin{equation}
+  \frac{\partial u_r}{\partial r} + \frac{u_r}{r} = 0
+\end{equation}
+となる。これの一般解は、$z$と$\theta$の任意の関数$A(z,\theta)$を用いて、
+\begin{equation}
+  u_r = \frac{A(z, \theta)}{r}
+\end{equation}
+と表せる。ここで境界条件$u_r(r = a) = u_r(r = 2a) = 0$より、$A(z, \theta) = 0$であるから、
+$u_r = 0$となる。
+
+\subsection{}
+\subsubsection{}
+0になる項を消去し、
+\begin{equation}
+  \frac{1}{r} \frac{\partial}{\partial r}
+  \left(r \frac{\partial u_{\theta}}{\partial r}\right)
+  - \frac{u_{\theta}}{r^2} = 0
+\end{equation}
+となる。
+
+\subsubsection{}
+Non-slip条件から、
+\begin{align}
+  u_{\theta}(r = a) = a \omega \\
+  u_{\theta}(r = 2a) = 0 
+\end{align}
+を満たせば良い。
+
+\subsubsection{}
+式(14)の解を$z$と$\theta$の関数$B(z, \theta)$と定数$\lambda$を用いて
+$u_{\theta} = B(z, \theta) r^{\lambda}$として式(14)に代入すると、
+$\lambda = \pm 1$を得る。
+したがって、一般解は関数$B_1(z, \theta), B_2(z, \theta)$を用いて
+\begin{equation}
+  u_{\theta} = B_1 r + \frac{B_2}{r}
+\end{equation}
+と表せる。式(15),(16)の境界条件を満たすように$B_1, B_2$を定めると、
+\begin{equation}
+  u_{\theta} = -\frac{r \omega}{3} + \frac{4 a^2 \omega}{3 r}
+\end{equation}
+を得る。
+
+\subsubsection{}
+放射方向の運動方程式を簡略化すると、
+\begin{equation}
+  \frac{\partial p}{\partial r} = \rho \frac{u_{\theta}^2}{r}
+\end{equation}
+となる。求める値は
+\begin{equation}
+  p(r = 2a) - p(r = a) 
+  = \int_a^{2a} \frac{\partial p}{\partial r} \mathrm{d} r
+  = \int_a^{2a} \rho \frac{u_{\theta}^2}{r} \mathrm{d} r
+\end{equation}
+であり、これに式(18)の分布を代入して計算すると、
+\begin{equation}
+  p(r = 2a) - p(r = a) = \frac{1}{18} \rho a^2 \omega^2 (15 - 16 \log 2)
+\end{equation}
+を得る。
+
+\subsection{}
+\subsubsection{}
+0となる項を消去し、
+\begin{equation}
+  G + \mu \frac{1}{r} \frac{\partial}{\partial r} \left(r \frac{\partial u_z}{\partial r}\right) = 0
+\end{equation}
+となる。
+
+\subsubsection{}
+Non-slip条件より、
+\begin{align}
+  u_z (r = a) &= 0 \\
+  u_z (r = 2a) &= 0
+\end{align}
+となれば良い。
+
+\subsubsection{}
+式(22)より、
+\begin{equation}
+  \frac{\partial}{\partial r} \left(r \frac{\partial u_z}{\partial r}\right)
+  = -\frac{r}{\mu} G
+\end{equation}
+となる。両辺を$r$で積分し、
+\begin{equation}
+  r \frac{\partial u_z}{\partial r}
+  = -\frac{r^2}{2\mu} G + C_1(z, \theta)
+\end{equation}
+すなわち、
+\begin{equation}
+  \frac{\partial u_z}{\partial r}
+  = -\frac{r}{2 \mu} G + \frac{C_1(z, \theta)}{r}
+\end{equation}
+を得る。これをさらに$r$で積分し、
+\begin{equation}
+  u_z = -\frac{r^2}{4 \mu} G + C_1(z, \theta) \log r + C_2(z, \theta)
+\end{equation}
+となる。式(23),(24)の境界条件を満たすように$C_1, C_2$を決定し、
+\begin{equation}
+  u_z = \frac{a^2 - r^2}{4 \mu} G + \frac{3 a^2}{4 \mu \log 2} G \log \frac{r}{a}
+\end{equation}
+を得る。
+
+\subsubsection{}
+$u_z$を断面内で積分すると、
+\begin{equation}
+  \begin{aligned}
+    \iint u_z \mathrm{d} A &=
+    \int_0^{2 \pi} \int_a^{2a} u_z r \mathrm{d} r \mathrm{d} \theta \\
+    &= \int_0^{2 \pi} \mathrm{d} \theta
+    \int_a^{2a} \left(\frac{a^2 - r^2}{4 \mu} G + \frac{3 a^2}{4 \mu \log 2} G \log \frac{r}{a}\right) r \mathrm{d} r \\
+    &= \frac{3 \pi (5 \log 2 - 3) G a^4}{8 \mu \log 2}
+  \end{aligned}
+\end{equation}
+となる。
+
+\subsubsection{}
+層流であるから、壁面せん断応力は
+\begin{equation}
+  \tau = \mu \frac{\partial u_z}{\partial r}
+  = \frac{(3 a^2 - 2 r^2 \log 2)G}{4 r \log 2}
+\end{equation}
+と表せる。求める値は、
+\begin{equation}
+  2 \pi r \tau = \frac{(3 a^2 - 2 r^2 \log 2) \pi G}{2 \log 2}
+\end{equation}
+となる。
+\end{document}
