@@ -93,4 +93,78 @@ $x$軸方向の力のつり合いから、
 \subsection{}
 せん断歪を0と近似した上で、直応力を部材全体にわたって求めることで$\sigma = A(x) z$と表したときの$A(x)$が得られる。
 それと式(14)を用いてせん断歪を計算すれば良い。
+
+\section{}
+\subsection{}
+\subsubsection{}
+水面から鉛直上方$l - \frac{m}{\rho \pi r^2}$の高さから測った円柱上面の高さを$u$とする。
+円柱にかかる$y$方向の力は、
+\begin{equation}
+  -m g + \rho g \pi r^2 \left\{l - \left(l - \frac{m}{\rho \pi r^2}\right) - u\right\}
+  = -\rho g \pi r^2 u
+\end{equation}
+となり、運動方程式は、
+\begin{equation}
+  m \ddot{u} = -\rho g \pi r^2 u
+\end{equation}
+で与えられる。
+
+\subsubsection{}
+円柱は単振動し、その振動数は$2 \pi \sqrt{\frac{m}{\rho g \pi r^2}}$となる。
+
+\subsection{}
+\subsubsection{}
+質点のつり合い位置からの変位を$x$と表す。質点の運動方程式が
+\begin{equation}
+  M \ddot{x} = -2 k x
+\end{equation}
+であるから、$x$の一般解は、定数$C_1, C_2$を用いて
+\begin{equation}
+  x = C_1 \cos \sqrt{\frac{2k}{M}} t  + C_2 \sin \sqrt{\frac{2k}{M}} t
+\end{equation}
+で与えられる。初期条件$x(0) = A, \dot{x}(0) = 0$より$C_1, C_2$を決定し、
+\begin{equation}
+  x = A \cos \sqrt{\frac{2k}{M}} t
+\end{equation}
+となる。この微分より、質点の速度と加速度はそれぞれ、
+\begin{align}
+  \dot{x} &= -\sqrt{\frac{2k}{M}} A \sin \sqrt{\frac{2k}{M}} t \\
+  \ddot{x} &= -\frac{2k}{M} A \cos \sqrt{\frac{2k}{M}} t
+\end{align}
+となる。
+
+\subsection{}
+質点の$y$軸方向の変位を$y$で表す。
+それぞれのばねの伸びは、$\sqrt{L^2 + y^2} - L$であり、
+弾性力の鉛直方向成分は
+\begin{equation}
+  k \left(\sqrt{L^2 + y^2} - L\right) \frac{y}{\sqrt{L^2 + y^2}}
+  = k y \left(1 - \frac{L}{\sqrt{L^2 + y^2}}\right)
+\end{equation}
+で与えられる。したがって、質点の運動方程式は、
+\begin{equation}
+  M \ddot{y} = -2k y \left(1 - \frac{L}{\sqrt{L^2 + y^2}}\right)
+\end{equation}
+となる。
+
+\subsection{}
+$(1 + \delta)^{\alpha} = 1 + \alpha \delta$において、
+$\delta = y^2 / L^2, \alpha = -1/2$として、
+\begin{equation}
+  \left(1 + \frac{y^2}{L^2}\right)^{-\frac{1}{2}}
+  \simeq 1 - \frac{y^2}{2 L^2}
+\end{equation}
+が得られる。これを用いると、式(25)の右辺は、
+\begin{equation}
+  -2 k y \left(1 - \frac{1}{\sqrt{1 + \frac{y^2}{L^2}}}\right)
+  = -2 k y \left\{1 - \left(1 - \frac{y^2}{2 L^2}\right)\right\}
+  = - \frac{k y^3}{L^2}
+\end{equation}
+となる。したがって、運動方程式は、
+\begin{equation}
+  M \ddot{y} =  - \frac{k y^3}{L^2}
+\end{equation}
+で近似できる。\par
+質点のポテンシャルが$y$の4次関数となることから、この運動と単振動を比べると、
+振動の端では質点の加減速が激しく、振動中心付近では質点の速度変化が小さい。
 \end{document}
