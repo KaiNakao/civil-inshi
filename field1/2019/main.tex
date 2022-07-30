@@ -1,0 +1,96 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2019分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+$x$軸方向の力のつり合いから、
+\begin{equation}
+  (\sigma + \mathrm{d} \sigma) w \mathrm{d} z
+  + (\tau + \mathrm{d} \tau) w \mathrm{d} x
+  - \sigma w \mathrm{d} z
+  + \tau w \mathrm{d} x = 0
+\end{equation}
+が成り立つ。式(1)を$w \mathrm{d} x \mathrm{d} z$で割ると、
+\begin{equation}
+  \frac{\mathrm{d} \sigma}{\mathrm{d} x}
+  + \frac{\mathrm{d} \tau}{\mathrm{d} z} = 0
+\end{equation}
+となり、したがって、$x$軸方向のつり合い式は、
+\begin{equation}
+  \frac{\partial \sigma}{\partial{d} x}
+  + \frac{\partial \tau}{\partial{d} z} = 0
+\end{equation}
+で与えられる。
+
+\subsection{}
+微小部分の右端まわりのモーメントのつり合いから、
+\begin{equation}
+  M + \mathrm{d} M - M - V \mathrm{d} x = 0
+\end{equation}
+となる。これより、
+\begin{equation}
+  V = \frac{\mathrm{d} M}{\mathrm{d} x}
+\end{equation}
+が成り立つ。
+
+\subsection{}
+\begin{align}
+  V &= \iint \tau \mathrm{d} A \\
+  M &= \iint \sigma z \mathrm{d} A
+\end{align}
+より、
+\begin{align}
+  V &= \int_{-\frac{h}{2}}^{\frac{h}{2}} \tau w \mathrm{d} z \\
+  M &= \int_{-\frac{h}{2}}^{\frac{h}{2}} \sigma z w \mathrm{d} z
+\end{align}
+である。
+
+\subsection{}
+\begin{equation}
+  \frac{\partial}{\partial x} [A(x) z] = A^{\prime}(x) z
+\end{equation}
+であるから、式(3)は
+\begin{equation}
+  \frac{\partial \tau}{\partial z} = -A^{\prime} (x) z
+\end{equation}
+と書き直せる。これより、
+\begin{equation}
+  \tau = \int \left(- A^{\prime}(x) z \right) \mathrm{d} z
+  = -\frac{1}{2} A^{\prime}(x) z^2 + C(x)
+\end{equation}
+を得る。ここで、$C(x)$は任意の$x$の関数である。
+境界条件$\tau(z = \pm h/2) = 0$より、
+\begin{equation}
+  C(x) = \frac{1}{2} A^{\prime}(x) \frac{h^2}{4}
+\end{equation}
+と定まり、
+\begin{equation}
+  \tau = \frac{1}{2} A^{\prime}(x) \left(\frac{h^2}{4} - z^2\right)
+\end{equation}
+となる。
+
+\subsection{}
+式(8)に式(14)、式(9)に$\sigma = A(x) z$をそれぞれ代入すると、
+\begin{align}
+  M &= \int_{-\frac{h}{2}}^{\frac{h}{2}} A(x) z^2 w \mathrm{d} z
+  = \frac{A(x)}{12} w h^3 \\
+  V &= \int_{-\frac{h}{2}}^{\frac{h}{2}}
+  \frac{1}{2} A^{\prime}(x) \left(\frac{h^2}{4} - z^2\right) \mathrm{d} z
+  = \frac{A^{\prime}(x)}{12} w h^3
+\end{align}
+となり、式(5)の成立が確認できる。
+
+\subsection{}
+せん断歪を0と近似した上で、直応力を部材全体にわたって求めることで$\sigma = A(x) z$と表したときの$A(x)$が得られる。
+それと式(14)を用いてせん断歪を計算すれば良い。
+\end{document}
