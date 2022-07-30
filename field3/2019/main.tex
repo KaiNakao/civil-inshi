@@ -109,5 +109,126 @@ $f$を$y = 0$の近傍で1次近似すると、
 \begin{equation}
   \frac{\partial u_r}{\partial r} + \frac{u_r}{r} = 0
 \end{equation}
-となる。$u_r = 1/r$とかこれ満たしますけどね、、
+となる。これの一般解は、$z$と$\theta$の任意の関数$A(z,\theta)$を用いて、
+\begin{equation}
+  u_r = \frac{A(z, \theta)}{r}
+\end{equation}
+と表せる。ここで境界条件$u_r(r = a) = u_r(r = 2a) = 0$より、$A(z, \theta) = 0$であるから、
+$u_r = 0$となる。
+
+\subsection{}
+\subsubsection{}
+0になる項を消去し、
+\begin{equation}
+  \frac{1}{r} \frac{\partial}{\partial r}
+  \left(r \frac{\partial u_{\theta}}{\partial r}\right)
+  - \frac{u_{\theta}}{r^2} = 0
+\end{equation}
+となる。
+
+\subsubsection{}
+Non-slip条件から、
+\begin{align}
+  u_{\theta}(r = a) = a \omega \\
+  u_{\theta}(r = 2a) = 0 
+\end{align}
+を満たせば良い。
+
+\subsubsection{}
+式(14)の解を$z$と$\theta$の関数$B(z, \theta)$と定数$\lambda$を用いて
+$u_{\theta} = B(z, \theta) r^{\lambda}$として式(14)に代入すると、
+$\lambda = \pm 1$を得る。
+したがって、一般解は関数$B_1(z, \theta), B_2(z, \theta)$を用いて
+\begin{equation}
+  u_{\theta} = B_1 r + \frac{B_2}{r}
+\end{equation}
+と表せる。式(15),(16)の境界条件を満たすように$B_1, B_2$を定めると、
+\begin{equation}
+  u_{\theta} = -\frac{r \omega}{3} + \frac{4 a^2 \omega}{3 r}
+\end{equation}
+を得る。
+
+\subsubsection{}
+放射方向の運動方程式を簡略化すると、
+\begin{equation}
+  \frac{\partial p}{\partial r} = \rho \frac{u_{\theta}^2}{r}
+\end{equation}
+となる。求める値は
+\begin{equation}
+  p(r = 2a) - p(r = a) 
+  = \int_a^{2a} \frac{\partial p}{\partial r} \mathrm{d} r
+  = \int_a^{2a} \rho \frac{u_{\theta}^2}{r} \mathrm{d} r
+\end{equation}
+であり、これに式(18)の分布を代入して計算すると、
+\begin{equation}
+  p(r = 2a) - p(r = a) = \frac{1}{18} \rho a^2 \omega^2 (15 - 16 \log 2)
+\end{equation}
+を得る。
+
+\subsection{}
+\subsubsection{}
+0となる項を消去し、
+\begin{equation}
+  G + \mu \frac{1}{r} \frac{\partial}{\partial r} \left(r \frac{\partial u_z}{\partial r}\right) = 0
+\end{equation}
+となる。
+
+\subsubsection{}
+Non-slip条件より、
+\begin{align}
+  u_z (r = a) &= 0 \\
+  u_z (r = 2a) &= 0
+\end{align}
+となれば良い。
+
+\subsubsection{}
+式(22)より、
+\begin{equation}
+  \frac{\partial}{\partial r} \left(r \frac{\partial u_z}{\partial r}\right)
+  = -\frac{r}{\mu} G
+\end{equation}
+となる。両辺を$r$で積分し、
+\begin{equation}
+  r \frac{\partial u_z}{\partial r}
+  = -\frac{r^2}{2\mu} G + C_1(z, \theta)
+\end{equation}
+すなわち、
+\begin{equation}
+  \frac{\partial u_z}{\partial r}
+  = -\frac{r}{2 \mu} G + \frac{C_1(z, \theta)}{r}
+\end{equation}
+を得る。これをさらに$r$で積分し、
+\begin{equation}
+  u_z = -\frac{r^2}{4 \mu} G + C_1(z, \theta) \log r + C_2(z, \theta)
+\end{equation}
+となる。式(23),(24)の境界条件を満たすように$C_1, C_2$を決定し、
+\begin{equation}
+  u_z = \frac{a^2 - r^2}{4 \mu} G + \frac{3 a^2}{4 \mu \log 2} G \log \frac{r}{a}
+\end{equation}
+を得る。
+
+\subsubsection{}
+$u_z$を断面内で積分すると、
+\begin{equation}
+  \begin{aligned}
+    \iint u_z \mathrm{d} A &=
+    \int_0^{2 \pi} \int_a^{2a} u_z r \mathrm{d} r \mathrm{d} \theta \\
+    &= \int_0^{2 \pi} \mathrm{d} \theta
+    \int_a^{2a} \left(\frac{a^2 - r^2}{4 \mu} G + \frac{3 a^2}{4 \mu \log 2} G \log \frac{r}{a}\right) r \mathrm{d} r \\
+    &= \frac{3 \pi (5 \log 2 - 3) G a^4}{8 \mu \log 2}
+  \end{aligned}
+\end{equation}
+となる。
+
+\subsubsection{}
+層流であるから、壁面せん断応力は
+\begin{equation}
+  \tau = \mu \frac{\partial u_z}{\partial r}
+  = \frac{(3 a^2 - 2 r^2 \log 2)G}{4 r \log 2}
+\end{equation}
+と表せる。求める値は、
+\begin{equation}
+  2 \pi r \tau = \frac{(3 a^2 - 2 r^2 \log 2) \pi G}{2 \log 2}
+\end{equation}
+となる。
 \end{document}
