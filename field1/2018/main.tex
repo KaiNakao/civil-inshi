@@ -1,0 +1,150 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2018分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+$x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるため、
+\begin{equation}
+  E I w^{\prime \prime \prime \prime}(x) = P \delta (x - L/2)
+\end{equation}
+が成り立つ。
+
+\subsection{}
+梁の両端で変位と曲げモーメントが0になるから、
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime \prime}(0) &= 0 \\
+  w^{\prime \prime}(L) &= 0
+\end{align}
+を満たせばよい。
+
+\subsection{}
+\subsubsection{}
+梁の両端で変位とたわみ角が0になるから、
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime}(0) &= 0 \\
+  w^{\prime}(L) &= 0
+\end{align}
+を満たせばよい。
+
+\subsubsection{}
+両端のせん断力については、梁の$x = L/2$に関する対称性と鉛直方向の力のつり合いより、
+単純支持でも固定支持でも同じである。\par
+両端の曲げモーメントについては、単純支持では境界条件から0であるが、
+固定支持では単純支持の状態から両端に反力として集中モーメントが加わることで、たわみ角が0になると考え、
+固定支持のときのほうが大きい。
+
+\subsubsection{}
+固定支持で載荷した構造系は、単純支持で載荷した構造系と、
+単純支持で載荷せず両端に集中モーメントのみを加えた構造系の足し合わせとして表せる。
+単純支持で載荷せず両端に集中モーメントのみを加えた構造系における変位が、
+固定支持の場合と単純支持の場合の変位の差に相当している。
+
+\subsection{}
+大きくなる。式(1)にみるように、変位は断面二次モーメントに反比例しているから。
+
+\section{}
+\subsection{}
+バネの自然の位置を基準にすると、質点の鉛直方向変位は$-m g / k + y(t)$と表せる。よって、
+\begin{equation}
+  m \ddot{y} = -m g - k \left(-\frac{mg}{k}+ y(t) - u_g(vt)\right)
+\end{equation}
+したがって、
+\begin{equation}
+  m \ddot{y} = -k\left(y(t) - u_g(vt)\right)
+\end{equation}
+が成り立つ。
+
+\subsection{}
+鉛直下向きを正として、
+\begin{equation}
+  f(t) = -k \left(-\frac{mg}{k} + y(t) - u_g(vt)\right)
+  = mg -k \left(y(t) - u_g(vt)\right)
+\end{equation}
+である。
+
+\subsection{}
+運動方程式が
+\begin{equation}
+  m \ddot{y} = - k y
+\end{equation}
+となり、一般解は定数$A_1, A_2$を用いて
+\begin{equation}
+  y = A_1 \cos \omega t + A_2 \sin \omega t
+\end{equation}
+と表せる。
+初期条件$y(0) = y_0, \dot{y}(0) = \dot{y}_0$を満たすように$A_1,A_2$を定め、
+\begin{equation}
+  y = y_0 \cos \omega t + \frac{\dot{y}_0}{w} \sin \omega t
+\end{equation}
+を得る。
+
+\subsection{}
+$x = vt$より、
+\begin{equation}
+  u_g(vt) = 
+  \begin{cases}
+    0 & (t < 0) \\
+    -\sin \omega t & (0 \leq t \leq \frac{\pi}{\omega}) \\
+    0 & (\frac{\pi}{\omega} < t)
+  \end{cases}
+\end{equation}
+である。\par
+$0 \leq t \leq \frac{\pi}{\omega}$のとき、
+$y = C t \cos \omega t$を式(11)に代入すると$C = \omega / 2$を得る。
+よって、
+\begin{equation}
+  y = \frac{1}{2} \omega t \cos \omega t
+\end{equation}
+は式(11)の特解である。
+したがって、一般解は定数$B_1, B_2$を用いて
+\begin{equation}
+  y = \frac{1}{2} \omega t \cos \omega t + B_1 \cos \omega t + B_2 \sin \omega t
+\end{equation}
+と表せる。
+初期条件$y(0) = y_0, \dot{y}(0) = \dot{y}_0$を満たすように$B_1,B_2$を定め、
+\begin{equation}
+  y = \frac{1}{2} \omega t \cos \omega t + y_0 \cos \omega t 
+  + \left(\frac{\dot{y}_0}{\omega} - \frac{1}{2}\right) \sin \omega t
+\end{equation}
+を得る。ここで、$t = \pi / \omega$とすると、
+\begin{align}
+  y\left(\frac{\pi}{\omega}\right) &= -\frac{\pi}{2} - y_0 \\
+  \dot{y}\left(\frac{\pi}{\omega}\right) &= -\dot{y}_0
+\end{align}
+である。\par
+$\frac{\pi}{\omega} < t$のとき、$u_g(vt) = 0$より、一般解は定数$C_1, C_2$を用いて
+\begin{equation}
+  y = C_1 \cos \omega t + C_2 \sin \omega t
+\end{equation}
+と表せる。式(20),(21)の初期条件を満たすように$C_1,C_2$を定めると、
+\begin{equation}
+  y = \left(\frac{\pi}{2} + y_0\right) \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
+\end{equation}
+を得る。
+式(19),(23)より、
+\begin{equation}
+  y = 
+  \begin{cases}
+    y = \frac{1}{2} \omega t \cos \omega t + y_0 \cos \omega t 
+    + \left(\frac{\dot{y}_0}{\omega} - \frac{1}{2}\right) \sin \omega t
+    & \left(0 \leq t \leq \frac{\pi}{\omega}\right) \\
+    y = \left(\frac{\pi}{2} + y_0\right) \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
+    & \left(\frac{\pi}{\omega} < t\right)
+  \end{cases}
+\end{equation}
+である。
+\end{document}
