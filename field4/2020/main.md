@@ -58,7 +58,7 @@ GPSに加えて、携帯と携帯基地局の間の通信を利用して位置�
 
 0→9の最短距離は190, 経路は0→2→4→5→8→9
 
-![dijkstra](dijkstra.gif)
+![dijkstra](/dijkstra.gif)
 
 ### (b)
 
