@@ -12,6 +12,59 @@
 \maketitle
 
 \section{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsubsection{}
+ベルヌーイの定理は以下の式で与えられる。
+\begin{equation}
+  \frac{\partial}{\partial s}
+  \left(\frac{v^2}{2 g} + \frac{p}{\rho g} + z + h_f\right) = 0
+\end{equation}
+(変数の定義は一般的なものなので省略。。) \\
+管の曲がりの部分では速度水頭が小さくなり、その分を圧力水頭や位置水頭の増加で補うことになる。
+サージタンクがなければ位置水頭を増加させることができず圧力水頭が急増し、
+圧力勾配が保たれず逆流する可能性がある。
 
+\subsubsection{}
+流出口での速度水頭が$\frac{v^2}{2g}$であることを考えると
+ダム湖の水面と流出口における全水頭の差は$H - \frac{v^2}{2g}$である。
+これとエネルギー保存則より、
+\begin{equation}
+  H - \frac{v^2}{2g} = K_e \frac{v^2}{2g} + f \frac{L}{d} \frac{v^2}{2g}
+  + K_b \frac{v^2}{2g} + f \frac{L_2}{d} \frac{v^2}{2g} + H_T +
+  f \frac{L_3}{d} \frac{v^2}{2g}
+\end{equation}
+を得る。したがって、
+\begin{equation}
+  H_T = H - \left(K_e + K_b + 1 + f\frac{L_1 + L_2 + L_3}{d}\right) \frac{v^2}{2g}
+\end{equation}
+となる。
 
+\subsubsection{}
+質量$m$の水塊の損失水頭$H_T$から取り出せるエネルギーは$mgH_T$である。
+ここでは流量が$Q = \pi d^2 v$であり、有効落差$H_T$による仕事率$P$は、
+\begin{equation}
+  P = \rho Q g H_T = \rho g \pi d^2 v H_T
+\end{equation}
+と表せる。したがって、
+\begin{equation}
+  T = P \eta = \rho g \pi d^2 v H_T \eta
+\end{equation}
+となる。
+
+\subsubsection{}
+式(5)から$v$に依存する部分$v H_T$を最大化すれば良い。式(3)を用いると、
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d} v}(v H_T)
+  = H - \frac{3}{2g} \left(K_e + K_b + 1 + f \frac{L_1 + L_2 + L_3}{d}\right) v^2
+\end{equation}
+である。これを0として、
+\begin{equation}
+  v = \sqrt{\frac{2 g H}{3 (K_e + K_b + 1 + f \frac{L_1 + L_2 + L_3}{d})}}
+\end{equation}
+で発電量が最大になる。
+
+\subsection{}
 \end{document}
