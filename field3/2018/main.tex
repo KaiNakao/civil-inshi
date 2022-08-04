@@ -66,5 +66,131 @@
 \end{equation}
 で発電量が最大になる。
 
+\section{}
 \subsection{}
+質量保存則は、
+\begin{equation}
+  \frac{\partial \rho}{\partial t}
+  + \frac{\partial (\rho u)}{\partial x} 
+  + \frac{\partial (\rho w)}{\partial z} = 0
+\end{equation}
+と表せる。流体の非圧縮性から
+$\boldsymbol{\nabla} \rho = \boldsymbol{0},\frac{\partial \rho}{\partial t} = 0$であり、
+\begin{equation}
+  \frac{\partial u}{\partial x} 
+  + \frac{\partial w}{\partial z} = 0
+\end{equation}
+となる。
+
+\subsection{}
+水平方向、鉛直方向の運動方程式はそれぞれ、
+\begin{align}
+  \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z} &= -\frac{1}{\rho} \frac{\partial p}{\partial x} \\
+  \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z} &= -\frac{1}{\rho} \frac{\partial p}{\partial z} -g
+\end{align}
+で与えられる。式(10),(11)の両方において、左辺は流体の加速度を表す。
+特に第1項は流速場の時間変化、第2項は流体粒子の移動による速度変化に対応する。
+右辺は流体に作用する力を表す。ここでは圧力勾配による力と物体力としての重力を考慮している。
+
+\subsection{}
+\subsubsection{}
+(11)より、
+\begin{equation}
+  \frac{\partial p}{\partial z}
+  = -\rho \left(g + \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z}\right)
+\end{equation}
+であるが、長波条件下では重力に比べて鉛直加速度が小さいと考え、
+\begin{equation}
+  \frac{\partial p}{\partial z} = -\rho g
+\end{equation}
+で近似できる。これを$z$から$\eta$まで鉛直方向に積分すると、
+\begin{equation}
+  p_a - p = -\rho g (\eta - z)
+\end{equation}
+となり、
+\begin{equation}
+  p = p_a + \rho g (\eta - z)
+\end{equation}
+を得る。
+\subsubsection{}
+式[2]に粘性抵抗の積分項
+$\frac{\tau_{sx}}{\rho}, \frac{\tau_{bx}}{\rho}$
+が残っていることから、ここでは、粘性抵抗まで考慮してみる。
+粘性係数を$\mu$、水平面に作用するせん断応力を$\tau_x$とすると、
+$\tau_x = \mu \frac{\partial u}{\partial z}$
+であるから、$x$軸方向に作用する物体力は、
+\begin{equation}
+  -\frac{1}{\rho} \frac{\partial p}{\partial x}
+  + \frac{\mu}{\rho} \frac{\partial^2 u}{\partial z^2}
+  = -\frac{1}{\rho} \left(\frac{\partial p_a}{\partial x}
+  + \rho g \frac{\partial \eta}{\partial x}\right)
+  + \frac{1}{\rho} \frac{\partial \tau_x}{\partial z}
+  = -\frac{1}{\rho} \frac{\partial p_a}{\partial x}
+  - g \frac{\partial \eta}{\partial x}
+  + \frac{1}{\rho} \frac{\partial \tau_x}{\partial z}
+\end{equation}
+と表せる。
+
+\subsection{}
+\subsubsection{}
+定常状態では、$\frac{\partial Q}{\partial t} = 0$である。
+また、式[1]を用いると、
+\begin{equation}
+  \frac{\partial}{\partial x} \frac{Q^2}{D}
+  \simeq \frac{\partial}{\partial x} \frac{Q^2}{h}
+  = \frac{2Q}{h} \frac{\partial Q}{\partial x}
+  = -\frac{2Q}{h} \frac{\partial \eta}{\partial t} = 0
+\end{equation}
+がわかる。よって、式[2]は、
+\begin{equation}
+  -\frac{1}{\rho} 
+  \int_{-h}^{\eta} \frac{\partial p}{\partial x} \mathrm{d} z
+  + \frac{\tau_{sx} - \tau_{bx}}{\rho} = 0
+\end{equation}
+と簡略化できる。さらに、
+\begin{equation}
+  \frac{\partial p}{\partial x}
+  = \frac{\partial p_a}{\partial x} + \rho g \frac{\partial \eta}{\partial x}
+\end{equation}
+で$z$に依存しないため、式(18)は
+\begin{equation}
+  -\frac{1}{\rho} 
+  \left(\frac{\partial p_a}{\partial x}
+  + \rho g \frac{\partial \eta}{\partial x}\right)
+  (\eta + h)
+  + \frac{\tau_{sx} - \tau_{bx}}{\rho} = 0
+\end{equation}
+と表せる。
+ここに$\eta + h \simeq h$を代入して整理すると、
+\begin{equation}
+  \frac{\partial \eta}{\partial x}
+  = \frac{1}{\rho g}
+  \left(\frac{\tau_{sx} - \tau_{bx}}{h} - \frac{\partial p_a}{\partial x}\right)
+\end{equation}
+を得る。これを$x$で積分して、$\eta$は定数$C$を用いて
+\begin{equation}
+  \eta = \frac{1}{\rho g}
+  \left(\frac{\tau_{sx} - \tau_{bx}}{h} x - p_a\right) + C
+\end{equation}
+と表せる。これに式[3]の気圧分布を代入し、
+境界条件$\eta(0) = 0$を満たすように$C$を定めると、
+\begin{equation}
+  \eta = \frac{\tau_{sx} - \tau_{bx}}{h} x + 
+  \frac{p_0 - p_L}{2 \rho g}
+  \left\{1 - \cos \left(\frac{\pi}{L} x\right)\right\}
+\end{equation}
+を得る。ここで$x = L$を代入すると、堤防前面における水位は、
+\begin{equation}
+  \eta = \frac{\tau_{sx} - \tau_{bx}}{\rho g h} L + \frac{p_0 - p_L}{\rho g}
+\end{equation}
+となる。
+\subsubsection{}
+式(24)の第1項は$h$に反比例し、
+$L$に比例する。ベンガル湾やメキシコ湾のように、湾内の水深が小さく、湾が長い場合には水位が大きくなりやすい。
+
+\subsection{}
+$\tau_{bx}$の絶対値が大きくなるとき、式(24)の第1項の値が小さくなり、
+これは堤防前面における水位を下げる影響を及ぼす。
+
+
 \end{document}
