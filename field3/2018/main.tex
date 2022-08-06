@@ -192,5 +192,20 @@ $L$に比例する。ベンガル湾やメキシコ湾のように、湾内の�
 $\tau_{bx}$の絶対値が大きくなるとき、式(24)の第1項の値が小さくなり、
 これは堤防前面における水位を下げる影響を及ぼす。
 
-
+\subsection{}
+非定常条件下で式[2]を設問(4)(a)と同様に変形すると、
+\begin{equation}
+  \frac{\partial \eta}{\partial x} =
+  \frac{1}{\rho g} \left(\frac{\tau_{sx} - \tau_{bx}}{h} - 
+  \frac{\partial p_a}{\partial x}\right) +
+  \frac{1}{\rho g} \left(\frac{2Q}{h} \frac{\partial \eta}{\partial t} - \frac{\partial Q}{\partial t}\right)
+\end{equation}
+となる。これより、堤防前面$x = L$における水位は、
+\begin{equation}
+  \eta = \left. \eta \right|_{x = 0} + \int_0^L \frac{\partial \eta}{\partial x} \mathrm{d} x
+  = \frac{\tau_{sx} - \tau_{bx}}{\rho g h} L + \frac{p_0 - p_L}{\rho g}
+  + \frac{1}{g h} \int_0^L \left(\frac{2 Q}{h} \frac{\partial \eta}{\partial t} - \frac{\partial Q}{\partial t}\right) \mathrm{d} x
+\end{equation}
+つまり、設問(4)(a)で求めた水位と非定常効果の積分によって表される。
+$\tau_{sx}$の向きが変わることで水位が上昇する非定常状態になり、式(26)の積分が正の値をもつことが考えられる。
 \end{document}
