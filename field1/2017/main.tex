@@ -1,0 +1,179 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2017分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+つり合い式の
+\begin{equation}
+  E I w^{\prime \prime \prime \prime} = p
+\end{equation}
+
+\subsection{}
+両端において、変位と曲げモーメントが0であるから、
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime \prime}(0) &= 0 \\
+  w^{\prime \prime}(L) &= 0
+\end{align}
+である。
+
+\subsection{}
+\subsubsection{}
+両端において、変位とたわみ角が0であるから、
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime}(0) &= 0 \\
+  w^{\prime}(L) &= 0
+\end{align}
+である。
+
+\subsubsection{}
+鉛直方向の力のつり合いと、$x = L/2$に関する対称性より明らか。
+
+\subsubsection{}
+固定支持で載荷した構造系は、単純支持で載荷した構造系と、
+単純支持で載荷せず両端に集中モーメントのみを加えた構造系の足し合わせとして表せる。
+単純支持で載荷せず両端に集中モーメントのみを加えた構造系における変位が、
+固定支持の場合と単純支持の場合の変位の差に相当している。
+
+\section{}
+\subsection{}
+運動方程式は、
+\begin{equation}
+  \begin{cases}
+    M \ddot{x_1} + k_1 (x_1 - x_2) &= f_1 \\
+    m \ddot{x_2} + k_1 (x_2 - x_1) + k_2 x_2 &= f_2 \\
+  \end{cases}
+\end{equation}
+であり、行列表示すると、
+\begin{equation}
+  \begin{pmatrix}
+    M & 0 \\
+    0 & m
+  \end{pmatrix}
+  \begin{pmatrix}
+    \ddot{x_1} \\
+    \ddot{x_2}
+  \end{pmatrix} +
+  \begin{pmatrix}
+    k_1 & -k_1 \\
+    -k_1 & k_1 + k_2
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1 \\
+    x_2
+  \end{pmatrix} =
+  \begin{pmatrix}
+    f_1 \\
+    f_2
+  \end{pmatrix}
+\end{equation}
+となる。
+
+\subsection{}
+$M = 3m, k_2 = 3 k_1$より、運動方程式は
+\begin{equation}
+  \begin{pmatrix}
+    3m & 0 \\
+    0 & m
+  \end{pmatrix}
+  \begin{pmatrix}
+    \ddot{x_1} \\
+    \ddot{x_2}
+  \end{pmatrix} +
+  \begin{pmatrix}
+    k_1 & -k_1 \\
+    -k_1 & 4k_1
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1 \\
+    x_2
+  \end{pmatrix} =
+  \begin{pmatrix}
+    f_1 \\
+    f_2
+  \end{pmatrix}
+\end{equation}
+と簡略化できる。ここで、行列$M, K$を
+\begin{align}
+  M &= 
+  \begin{pmatrix}
+    3m & 0 \\
+    0 & m
+  \end{pmatrix} \\
+  K &=
+  \begin{pmatrix}
+    k_1 & -k_1 \\
+    -k_1 & 4k_1
+  \end{pmatrix}
+\end{align}
+とする。固有モード$\boldsymbol{\phi}$と固有振動数$\omega$について、
+\begin{equation}
+  (K - \omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}
+\end{equation}
+が成り立つ。
+$\boldsymbol{\phi} \neq \boldsymbol{0}$であるような$\boldsymbol{\phi}$が存在するとき、
+\begin{equation}
+  \det (K - \omega^2 M) = 0
+\end{equation}
+が満たされる。
+\begin{equation}
+  \det (K - \omega^2 M) = 
+  \det
+  \begin{pmatrix}
+    k_1 - 3 m \omega^2 & -k_1 \\
+    -k_1 & 4k_1 - m \omega^2
+  \end{pmatrix} =
+  3 m^2 \omega^4 - 13 k_1 m \omega^2 + 3 k_1^2
+\end{equation}
+であり、これを0とすると、
+\begin{equation}
+  \omega = \sqrt{\frac{(13 \pm \sqrt{133}) k_1}{6m}}
+\end{equation}
+を得る。これをもとに、
+\begin{align}
+  \omega_1 &= \sqrt{\frac{(13 + \sqrt{133}) k_1}{6m}} \\
+  \omega_2 &= \sqrt{\frac{(13 - \sqrt{133}) k_1}{6m}} \\
+\end{align}
+とする。
+$\omega_1, \omega_2$に対応する固有モードを
+$\boldsymbol{\phi}_1, \boldsymbol{\phi}_2$として、
+$(K - \omega_1^2 M) \boldsymbol{\phi}_1 = \boldsymbol{0}$を解くと、
+\begin{equation}
+  \boldsymbol{\phi}_1 \propto
+  \begin{pmatrix}
+    1 \\
+    \frac{-11 - \sqrt{133}}{2}
+  \end{pmatrix}
+\end{equation}
+を得る。
+また、$(K - \omega_2^2 M) \boldsymbol{\phi}_2 = \boldsymbol{0}$を解くと、
+\begin{equation}
+  \boldsymbol{\phi}_2 \propto
+  \begin{pmatrix}
+    1 \\
+    \frac{-11 + \sqrt{133}}{2}
+  \end{pmatrix}
+\end{equation}
+を得る。
+したがって、固有振動数は
+$\omega_1 = \sqrt{\frac{(13 + \sqrt{133}) k_1}{6m}}, \omega_2 = \sqrt{\frac{(13 - \sqrt{133}) k_1}{6m}}$
+であり、それぞれに対応する固有モードは、
+$\boldsymbol{\phi}_1 = \left(1, \frac{-11-\sqrt{133}}{2}\right),\boldsymbol{\phi}_2 = \left(1, \frac{-11+\sqrt{133}}{2}\right)$
+である。
+
+\subsection{}
+曲げの伝達が表現されないこと。減衰が考慮されないこと。
+\end{document}
