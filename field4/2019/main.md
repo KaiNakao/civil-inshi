@@ -14,9 +14,9 @@ $$
 P_g=
 \begin{cases}
     1 & (V_t-V_g < -K) \\
-    \frac{1}{2} + \frac{1}{2}(V_g-V_t)\left(\frac{4}{3K}+\frac{V_t-V_g}{3K^2}\right) & (-K \le V_t-V_g \le 0)\\
-    \frac{1}{2} - \frac{1}{2}(V_t-V_g)\left(\frac{4}{3K}-\frac{V_t-V_g}{3K^2}\right) & (0 < V_t-V_g \le K)\\
-    0 & (K<V_t-V_g)
+    \frac{1}{2} + \frac{1}{2}(V_g-V_t)\left(\frac{4}{3K}+\frac{V_t-V_g}{3K^2}\right) & (-K \le V_t-V_g \le 0) \\
+    \frac{1}{2} - \frac{1}{2}(V_t-V_g)\left(\frac{4}{3K}-\frac{V_t-V_g}{3K^2}\right) & (0 < V_t-V_g \le K) \\
+    0 & (K < V_t-V_g)
 \end{cases}
 $$
 
