@@ -9,6 +9,7 @@ P_g = Pr(U_g > U_t) = Pr(\varepsilon' > V_t - V_g)
 $$
 
 したがって、
+
 $$
 P_g=
 \begin{cases}
@@ -70,9 +71,11 @@ $$
 共線条件式は、投影中心O-画像投影像p-地上座標Pが同一直線状にあることを意味する。
 
 $\vec{OP}=\boldsymbol{P}, \vec{Op}=\boldsymbol{p}$ とおくと、
+
 $$
 \boldsymbol{P}=\frac{1}{m}D\boldsymbol{p}
 $$
+
 ただし $m$ は画像スケール、 $D$ は回転行列。
 
 ### (c)
