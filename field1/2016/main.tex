@@ -1,0 +1,183 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2016分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+梁の中央に作用する集中荷重$P$は
+分布荷重$P \delta(x - L/2)$と表せる。
+したがって、
+\begin{equation}
+  E I w^{\prime \prime \prime \prime} = P \delta \left(x - \frac{L}{2}\right)
+\end{equation}
+が成り立つ。単純支持条件で梁の両端で鉛直方向の変位と曲げモーメントが0になるから、境界条件は
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime \prime}(0) &= 0 \\
+  w^{\prime \prime}(L) &= 0
+\end{align}
+である。
+
+\subsection{}
+微小部分の力のつり合いより、曲げモーメントを$M(x)$とすると
+\begin{equation}
+  \frac{\mathrm{d}^2 M}{\mathrm{d} x^2} + P \delta \left(x - \frac{L}{2}\right) = 0
+\end{equation}
+が成り立つ。また、断面でのモーメントのつり合いから、
+\begin{equation}
+  M(x) = -E I(x) w^{\prime \prime}(x)
+\end{equation}
+が成り立つ。式(7)を式(6)に代入して、
+\begin{equation}
+  E \left(I(x) w^{\prime \prime \prime \prime}(x) + 
+  2 I^{\prime}(x) w^{\prime \prime \prime}(x) + 
+  I^{\prime \prime}(x) w^{\prime \prime}(x)\right)
+  = P \delta \left(x - \frac{L}{2}\right)
+\end{equation}
+を得る。
+
+\subsection{}
+変化しない。
+曲げモーメントは式(6)から求められ、この式は断面2次モーメントの分布によらない。
+
+\subsection{}
+変化する。
+式(7)より、
+\begin{equation}
+  \frac{\mathrm{d}}{\mathrm{d} x} \frac{\mathrm{d} w}{\mathrm{d} x}
+  = -\frac{E I(x)}{M(x)}
+\end{equation}
+である。
+損傷の前後で$M(x)$は同一、$I(x)$のみが変化するが、式(9)より、たわみ角の微分が変化することになる。たわみ角が変化しないと仮定すると、たわみ角の微分も変化しないはずであり矛盾する。
+
+\section{}
+\subsection{}
+\subsubsection{}
+運動方程式は、
+\begin{equation}
+  m_1 \ddot{x}_1 + k_1 x_1 = -m \alpha
+\end{equation}
+となる。
+
+\subsubsection{}
+特解を$x = C_1 \sin \left(\sqrt{1.1} \omega_0 t\right)$
+として運動方程式に代入すると、$C_1 = \frac{10}{\omega_0^2}$を得る。
+したがって、解は
+\begin{equation}
+  x = \frac{10}{\omega_0^2} \sin \left(\sqrt{1.1} \omega_0 t\right) + C_2 \cos (\omega_0 t) + C_3 \sin (\omega_0 t)
+\end{equation}
+と表せる。初期条件を満たすように$C_2, C_3$を定め、
+\begin{equation}
+  x = \frac{10}{\omega_0^2} \sin \left(\sqrt{1.1} \omega_0 t\right)
+  -\frac{10 \sqrt{1.1}}{\omega_0^2} \sin (\omega_0 t)
+\end{equation}
+を得る。
+
+\subsection{}
+\subsubsection{}
+運動方程式は
+\begin{equation}
+  \begin{cases}
+    m_1 \ddot{x}_1 + k_1 (x_1 - x_2) = -m_1 \alpha \\
+    m_2 \ddot{x}_2 + k_1 (x_2 - x_1) + k_2 x_2 = -m_2 \alpha
+  \end{cases}
+\end{equation}
+であり、これを行列表示すると、
+\begin{equation}
+  \begin{pmatrix}
+    m_1 & 0 \\
+    0 & m_2
+  \end{pmatrix}
+  \begin{pmatrix}
+    \ddot{x}_1 \\
+    \ddot{x}_2
+  \end{pmatrix} +
+  \begin{pmatrix}
+    k_1 & -k_1 \\
+    -k_1 & k_1 + k_2
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1 \\
+    x_2
+  \end{pmatrix} =
+  \begin{pmatrix}
+    -m_1 \alpha \\
+    -m_2 \alpha
+  \end{pmatrix}
+\end{equation}
+である。
+
+\subsubsection{}
+行列$M,K$を
+\begin{align}
+  M &= 
+  \begin{pmatrix}
+    m_1 & 0 \\
+    0 & m_2
+  \end{pmatrix} \\
+  K &= 
+  \begin{pmatrix}
+    k_1 & -k_1 \\
+    -k_1 & k_1 + k_2
+  \end{pmatrix}
+\end{align}
+とする。
+このとき、固有振動数を$\omega$とおくと
+$\det (K - \omega^2 M) = 0$が成り立つ。
+\begin{equation}
+  \begin{aligned}
+    \det (K - \omega^2 M)
+    &= \det
+    \begin{pmatrix}
+      k_1 - \omega^2 m_1 & -k_1 \\
+      -k_1 & k_1 + k_2 - \omega^2 m_2
+    \end{pmatrix} \\
+    &= \det
+    \begin{pmatrix}
+      k_1 - \omega^2 m_1 & -k_1 \\
+      -k_1 & 111 k_1 - 110 \omega^2 m_1
+    \end{pmatrix} \\
+    &= (k_1 - \omega^2 m_1) (111 k_1 - 110 \omega^2 m_1) - k_1^2 \\
+    &= m^2 (10 \omega^2 - 11 \omega_0^2) (11 \omega^2 - 10 \omega_0^2)
+  \end{aligned}
+\end{equation}
+であるから、固有振動数は
+\begin{equation}
+  \omega = \sqrt{\frac{10}{11}} \omega_0,
+  \sqrt{\frac{11}{10}} \omega_0
+\end{equation}
+である。
+
+\subsubsection{}
+上で求めた固有振動数のうち、小さい方の$\sqrt{\frac{10}{11}} \omega_0$が
+1次モードの固有振動数である。対応する固有ベクトルを$\boldsymbol{\phi}$として、
+$(K - \omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}$を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    11 \\ 1
+  \end{pmatrix}
+\end{equation}
+を得る。
+したがって、固有振動において$x_1,x_2$の振幅をそれぞれ$A_1,A_2$とすると、
+$A_1 / A_2 = 11$である。求める値は、
+\begin{equation}
+  \frac{A_1 - A_2}{A_2}
+  = \frac{A_1}{A_2} - 1 = 10
+\end{equation}
+である。
+
+\subsubsection{}
+減衰の性能を高める。\par
+剛性を高める。
+\end{document}
