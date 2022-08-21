@@ -24,8 +24,8 @@ $$
 
 $$
 \begin{eqnarray}
-V'_{OW}=-0.2\left(27+\frac{1}{2}\cdot\frac{60}{10}\right)-0.005\cdot200-3=-10 \\
-Pr(U_{RW} < U_{OW})=Pr(-7-(-10)+\varepsilon' < 0)=0.35
+V' _ {OW}=-0.2\left(27+\frac{1}{2}\cdot\frac{60}{10}\right)-0.005\cdot200-3=-10 \\
+Pr(U _ {RW} < U _ {OW})=Pr(-7-(-10)+\varepsilon' < 0)=0.35
 \end{eqnarray}
 $$
 
@@ -39,8 +39,8 @@ $$
 
 $$
 \begin{eqnarray}
-V_{OW}=-0.2\left(27+\frac{1}{2}\cdot\frac{60}{5}\right)-0.005\cdot200=-7.6 \\
-Pr(U_{RW} < U_{OW})=Pr(-7-(-7.6)+\varepsilon' < 0)=0.47
+V _ {OW}=-0.2\left(27+\frac{1}{2}\cdot\frac{60}{5}\right)-0.005\cdot200=-7.6 \\
+Pr(U _ {RW} < U _ {OW})=Pr(-7-(-7.6)+\varepsilon' < 0)=0.47
 \end{eqnarray}
 $$
 
@@ -50,8 +50,8 @@ $$
 
 $$
 \begin{eqnarray}
-V'_{OW}=-7.6-3=-10.6 \\
-Pr(U_{RW} < U_{OW})=Pr(-7-(-10.6)+\varepsilon' < 0)=0.32
+V' _ {OW}=-7.6-3=-10.6 \\
+Pr(U _ {RW} < U _ {OW})=Pr(-7-(-10.6)+\varepsilon' < 0)=0.32
 \end{eqnarray}
 $$
 
