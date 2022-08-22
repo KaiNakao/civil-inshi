@@ -116,4 +116,56 @@ $Q = A_1 v_1 = \frac{A_1}{4} v_2$より、
 を得る。問題の図5の流速分布では$0 \leq z \leq h$で
 $\frac{\partial w}{\partial t} > 0, \frac{\partial w}{\partial z} > 0$
 であり、$p_A > \rho g h$となっている。
+
+\section{}
+\subsection{}
+連続式$q = v_1 C_c h_1 = v_0 h_0$より
+$v_0 = C_c h_1 v_1 / h_0$であり、これをベルヌーイの定理
+\begin{equation}
+  \frac{v_0^2}{2g} + h_0 = \frac{v_1^2}{2g} + C_c h_1
+\end{equation}
+に代入すると、
+\begin{equation}
+  v_1 = h_0 \sqrt{\frac{2g}{h_0 + C_c h_1}}
+\end{equation}
+を得る。したがって、
+\begin{equation}
+  q = v_1 C_c h_1 = C_c h_0 h_1 \sqrt{\frac{2g}{h_0 + C_c h_1}}
+\end{equation}
+である。\par
+ゲート開口部では渦運動が卓越しているため、流量算出においてはA地点の水深を用いる必要がある。
+
+\subsection{}
+運動量保存則から
+\begin{equation}
+  \rho q v_3 - \rho q v_2 = \frac{1}{2} \rho g h_2^2 - \frac{1}{2} \rho g h_3^2
+\end{equation}
+が成り立つ。連続式より
+$v_2 = q / h_2, v_3 = q / h_3$であり、これを代入すると、
+\begin{equation}
+  h_2 = \frac{1}{2} \left(\sqrt{h_3^2 + \frac{8 q^2}{g h_3}} - h_3\right)
+\end{equation}
+を得る。
+
+\subsection{}
+式(19)を$h_2$で微分すると、
+\begin{equation}
+  \frac{\partial h_2}{\partial h_3} =
+  \frac{1}{2} \left(\frac{2h_3 - \frac{8q^2}{g h_3^2}}{2 \sqrt{h_3^2 + \frac{8q^2}{gh_3}}} - 1\right) =
+  \frac{1}{4 \sqrt{h_3^2 + \frac{8q^2}{gh_3}}} \left(2h_3 - 2 \sqrt{h_3^2 + \frac{8q^2}{gh_3}} - \frac{8q^2}{gh_3^2}\right) < 0
+\end{equation}
+であるから、$h_3$の増加に対して、$h_2$は減少する。\par
+A地点で跳水が起こるためには、$h_2 = C_c h_1$であればよい。
+このとき式(19)より、
+\begin{equation}
+  \frac{1}{2} \left(\sqrt{h_3^2 + \frac{8 q^2}{g h_3}} - h_3\right) = C_c h_1
+\end{equation}
+であり、ここに式(17)を代入して$h_3$について解くと、
+\begin{equation}
+  h_3 = \frac{1}{2} \left(\sqrt{C_c^2 h_1^2 + \frac{16 C_c h_0^2 h_1}{h_0 + C_c h_1}} - C_c h_1\right)
+\end{equation}
+を得る。
+\subsection{}
+副ダムが高すぎる場合は、ダムのかなり手前のエネルギーが大きい状態で跳水が起こる。
+副ダムが低すぎる場合は、跳水が起こらない。
 \end{document}
