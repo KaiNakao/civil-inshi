@@ -1,0 +1,309 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2015分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+つり合いを表す微分方程式は、
+\begin{equation}
+  E I w^{\prime \prime \prime \prime} = p
+\end{equation}
+と表せる。単純支持条件では梁の両端で鉛直方向の変位と曲げモーメントが0になるから、境界条件は
+\begin{align}
+  w(0) &= 0 \\
+  w(L) &= 0 \\
+  w^{\prime \prime}(0) &= 0 \\
+  w^{\prime \prime}(L) &= 0
+\end{align}
+である。
+
+\subsection{}
+微小部分の力のつり合いより、曲げモーメントを$M(x)$とすると
+\begin{equation}
+  \frac{\mathrm{d}^2 M}{\mathrm{d} x^2} + p = 0
+\end{equation}
+が成り立つ。また、断面でのモーメントのつり合いから、
+\begin{equation}
+  M(x) = -E I(x) w^{\prime \prime}(x)
+\end{equation}
+が成り立つ。式(7)を式(6)に代入して、
+\begin{equation}
+  E \left(I(x) w^{\prime \prime \prime \prime}(x) + 
+  2 I^{\prime}(x) w^{\prime \prime \prime}(x) + 
+  I^{\prime \prime}(x) w^{\prime \prime}(x)\right)
+  = p
+\end{equation}
+を得る。
+
+\subsection{}
+変化しない。
+曲げモーメントは式(6)から求められ、この式は断面2次モーメントの分布によらない。
+
+\subsection{}
+変化する。
+オイラーの座屈荷重$P_c$は、
+\begin{equation}
+  P_c = E I \frac{\pi^2}{l^2}
+\end{equation}
+と表され、断面2次モーメントの分布に依存する。
+
+\section{}
+\subsection{}
+$t < 0$のとき、
+\begin{equation}
+  \begin{aligned}
+    m \ddot{x}_1 &= 0 \\
+    m \ddot{x}_2 + k (x_2 - x_3) &= 0 \\
+    m \ddot{x}_3 + k (x_3 - x_2) &= 0
+  \end{aligned}
+\end{equation}
+より、
+\begin{equation}
+  \begin{pmatrix}
+    m & 0 & 0 \\
+    0 & m & 0 \\
+    0 & 0 & m
+  \end{pmatrix} +
+  \begin{pmatrix}
+    0 & 0 & 0 \\
+    0 & k & -k \\
+    0 & -k & k
+  \end{pmatrix} = \boldsymbol{0}
+\end{equation}
+が成り立つ。\par
+$t \geq 0$のとき、
+\begin{equation}
+  \begin{aligned}
+    m \ddot{x}_1 + k (x_1 - x_2) &= 0 \\
+    m \ddot{x}_2 + k (x_2 - x_1) + k (x_2 - x_3) &= 0 \\
+    m \ddot{x}_3 + k (x_3 - x_2) &= 0
+  \end{aligned}
+\end{equation}
+より、
+\begin{equation}
+  \begin{pmatrix}
+    m & 0 & 0 \\
+    0 & m & 0 \\
+    0 & 0 & m
+  \end{pmatrix} +
+  \begin{pmatrix}
+    k & -k & 0 \\
+    -k & 2k & -k \\
+    0 & -k & k
+  \end{pmatrix} = \boldsymbol{0}
+\end{equation}
+が成り立つ。
+
+\subsection{}
+行列M, Kを
+\begin{equation}
+  M = 
+  \begin{pmatrix}
+    m & 0 & 0 \\
+    0 & m & 0 \\
+    0 & 0 & m
+  \end{pmatrix}, \quad
+  K =
+  \begin{pmatrix}
+    k & -k & 0 \\
+    -k & 2k & -k \\
+    0 & -k & k
+  \end{pmatrix}
+\end{equation}
+とする。このとき、
+固有振動数$\omega$と固有モード$\boldsymbol{\phi}$について、
+\begin{equation}
+  \left(K -\omega^2 M\right) \boldsymbol{\phi} = \boldsymbol{0}
+\end{equation}
+が成り立つ。$\boldsymbol{\phi} \neq \boldsymbol{0}$なる解が存在するためには、
+$\det \left(K - \omega^2 M\right) = 0$
+が必要であり、
+\begin{equation}
+  \det \left(K - \omega^2 M\right)
+  = -\omega^2 m (\omega^2 m - k) (\omega^2 m - 3k)
+\end{equation}
+より、条件を満たすのは
+\begin{equation}
+  \omega = 0, \sqrt{\frac{k}{m}}, \sqrt{\frac{3k}{m}}
+\end{equation}
+のときである。\par
+$\omega = 0$のとき、
+$(K -\omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}$
+を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    1 \\ 1 \\ 1
+  \end{pmatrix}
+\end{equation}
+となる。これを1次モードとすれば、
+\begin{equation}
+  \omega_1 = 0, \boldsymbol{\phi}_1 =
+  \begin{pmatrix}
+    1 \\ 1 \\ 1
+  \end{pmatrix}
+\end{equation}
+である。\par
+$\omega = \sqrt{k/m}$のとき、
+$(K -\omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}$
+を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    1 \\ 0 \\ -1
+  \end{pmatrix}
+\end{equation}
+となる。これを2次モードとすれば、
+\begin{equation}
+  \omega_2 = \sqrt{\frac{k}{m}}, \boldsymbol{\phi}_2 =
+  \begin{pmatrix}
+    1 \\ 0 \\ -1
+  \end{pmatrix}
+\end{equation}
+である。\par
+$\omega = \sqrt{3k/m}$のとき、
+$(K -\omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}$
+を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    1 \\ -2 \\ 1
+  \end{pmatrix}
+\end{equation}
+となる。これを3次モードとすれば、
+\begin{equation}
+  \omega_3 = \sqrt{\frac{3k}{m}}, \boldsymbol{\phi}_3 =
+  \begin{pmatrix}
+    1 \\ -2 \\ 1
+  \end{pmatrix}
+\end{equation}
+である。\par
+
+\subsection{}
+2つの異なる固有モード形$\boldsymbol{\phi}_i, \boldsymbol{\phi}_j$に対して、
+\begin{align}
+  \boldsymbol{\phi}_i M \boldsymbol{\phi}_j &= 0 \\
+  \boldsymbol{\phi}_i K \boldsymbol{\phi}_j &= 0
+\end{align}
+が成り立つことを多自由度系モードの直交性という。
+これを利用することで、複数の変数で連立された運動方程式が独立な微分方程式に分解できる。\par
+$1 \leq i, j \leq 3, i \neq j$なる任意の$(i, j)$に対して、式(15)より、
+\begin{align}
+  \boldsymbol{\phi}_j^T (K - \omega_i^2 M) \boldsymbol{\phi}_i &= 0 \\
+  \boldsymbol{\phi}_i^T (K - \omega_j^2 M) \boldsymbol{\phi}_j &= 0
+\end{align}
+が成立している。ここで、スカラーの値は転置しても同じであるから、
+\begin{align}
+  \boldsymbol{\phi}_j^T K \boldsymbol{\phi}_i =
+  \left(\boldsymbol{\phi}_j^T K \boldsymbol{\phi_i}\right)^T =
+  \boldsymbol{\phi}_i^T K \boldsymbol{\phi}_j \\
+  \boldsymbol{\phi}_j^T M \boldsymbol{\phi}_i =
+  \left(\boldsymbol{\phi}_j^T M \boldsymbol{\phi_i}\right)^T =
+  \boldsymbol{\phi}_i^T M \boldsymbol{\phi}_j
+\end{align}
+が成り立つ。式(28),(29)を式(26)に代入して式(27) - 式(26)を計算すると、
+\begin{equation}
+  (\omega_j^2 - \omega_i^2) \boldsymbol{\phi}_i^T M \boldsymbol{\phi}_j = 0
+\end{equation}
+を得る。$i \neq j$であるから$\omega_i \neq \omega_j$であり、ここから
+$\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_j = 0$を得る。
+これを式(27)に代入して、
+$\boldsymbol{\phi}_i^T K \boldsymbol{\phi}_j = 0$を得る。
+
+\subsection{}
+応答を固有振動の重ね合わせとして、スカラー$q_1, q_2, q_3$を用いて
+\begin{equation}
+  \boldsymbol{x} =
+  \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+  \end{pmatrix} =
+  \sum_{i = 1}^3 q_i \boldsymbol{\phi}_i
+\end{equation}
+と表す。これを運動方程式
+$M \ddot{\boldsymbol{x}} + K \boldsymbol{x} = \boldsymbol{0}$
+に代入すると、モードの直交性より以下の独立な方程式
+\begin{equation}
+  \boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i \ddot{q}_i +
+  \boldsymbol{\phi}_i^T K \boldsymbol{\phi}_i q_i = 0
+  \quad \mathrm{for} \quad i = 1, 2, 3
+\end{equation}
+を得る。
+$\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i, \boldsymbol{\phi}_i^T K \boldsymbol{\phi}_i$
+の値をそれぞれ計算すると、
+\begin{equation}
+  \begin{cases}
+    3 m \ddot{q}_1 &= 0 \\
+    2 m \ddot{q}_2 + 2 k q_2 &= 0 \\
+    6 m \ddot{q}_3 + 18 k q_3 &= 0
+  \end{cases}
+\end{equation}
+となる。\par
+初期条件については、
+\begin{equation}
+  \boldsymbol{x}(0) =
+  \begin{pmatrix}
+    0 \\ 0 \\ 0
+  \end{pmatrix},
+  \boldsymbol{\dot{x}}(0) =
+  \begin{pmatrix}
+    v \\ 0 \\ 0
+  \end{pmatrix}
+\end{equation}
+であるが、モードの直交性より、
+\begin{equation}
+  q_i(0) = \frac{\boldsymbol{\phi}_i^T M \boldsymbol{x}(0)}{\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i},
+  \dot{q}_i(0) = \frac{\boldsymbol{\phi}_i^T M \boldsymbol{\dot{x}}(0)}{\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i}
+  \quad \mathrm{for} \quad i = 1, 2, 3
+\end{equation}
+が成り立つ。これをそれぞれ計算し、
+\begin{align}
+  q_1(0) = 0, \quad q_2(0) = 0, \quad q_3(0) = 0 \\
+  \dot{q}_1(0) = \frac{v}{3}, \quad \dot{q}_2(0) \frac{v}{2}, \quad \dot{q}_3(0) = \frac{v}{6}
+\end{align}
+をとなる。式(33),(36),(37)を解くと、
+\begin{equation}
+  \begin{cases}
+    q_1 &= \frac{v}{3} t \\
+    q_2 &= \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t \\
+    q_3 &= \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
+  \end{cases}
+\end{equation}
+を得る。したがって、求める応答は、
+\begin{equation}
+  \begin{aligned}
+    \boldsymbol{x} &= \frac{v}{3} t
+    \begin{pmatrix}
+      1 \\ 1 \\ 1
+    \end{pmatrix} +
+    \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t
+    \begin{pmatrix}
+      1 \\ 0 \\ -1
+    \end{pmatrix} +
+    \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
+    \begin{pmatrix}
+      1 \\ -2 \\ 1
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+      \frac{v}{3} t +
+      \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t +
+      \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t \\
+      \frac{v}{3} t -
+      \frac{v}{3} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t \\
+      \frac{v}{3} t -
+      \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t +
+      \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
+    \end{pmatrix}
+  \end{aligned}
+\end{equation}
+である。
+\end{document}
