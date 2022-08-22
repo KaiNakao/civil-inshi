@@ -1,0 +1,194 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2015分野3}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+$\boldsymbol{u} = (u, v)$に対して、
+\begin{equation}
+  \boldsymbol{\nabla} \cdot \boldsymbol{u} = 
+  \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} =
+  a \cos \omega t - a \cos \omega t = 0
+\end{equation}
+より、非圧縮性流体の連続式が満たされている。
+
+\subsection{}
+速度ポテンシャル$\phi$を
+\begin{equation}
+  \phi = \frac{1}{2} a (x^2 - y^2) \cos \omega t
+\end{equation}
+とすれば、$\boldsymbol{\nabla} \phi = \boldsymbol{u}$が満たされる。
+
+\subsection{}
+流線上の微小変化
+$\mathrm{d} \boldsymbol{r} = (\mathrm{d} x, \mathrm{d} y)$
+は流速ベクトルに平行であるから、
+\begin{equation}
+  u \mathrm{d} y - v \mathrm{d} x = 0
+\end{equation} 
+が成り立つ。これより、
+\begin{equation}
+  \frac{\mathrm{d} y}{y} = -\frac{\mathrm{d} x}{x}
+\end{equation}
+が得られる。両辺を積分した結果は定数$C$を用いて
+\begin{equation}
+  \log y = -\log x + C
+\end{equation}
+と表せる。したがって、流線は任意の実数$A$を用いて、
+\begin{equation}
+  xy = A
+\end{equation}
+である。
+
+\subsection{}
+流体加速度の$x$方向成分は、
+\begin{equation}
+  \frac{\partial u}{\partial t} +
+  u \frac{\partial u}{\partial x} +
+  v \frac{\partial u}{\partial y} =
+  -a \omega x \sin \omega t + a^2 x \cos^2 \omega t
+\end{equation}
+である。また、$y$方向成分は、
+\begin{equation}
+  \frac{\partial v}{\partial t} +
+  u \frac{\partial v}{\partial x} +
+  v \frac{\partial v}{\partial y} =
+  a \omega y \sin \omega t + a^2 y \cos^2 \omega t
+\end{equation}
+である。
+
+\subsection{}
+Eulerの運動方程式より、
+\begin{equation}
+  \begin{pmatrix}
+    -a \omega x \sin \omega t + a^2 x \cos^2 \omega t \\
+    a \omega y \sin \omega t + a^2 y \cos^2 \omega t
+  \end{pmatrix} =
+  -\frac{\boldsymbol{\nabla} p}{\rho}
+\end{equation}
+である。この解は定数$p_0$を用いて、
+\begin{equation}
+  p = \frac{1}{2} \rho a \omega (x^2 - y^2) \sin \omega t
+  - \frac{1}{2} \rho a^2 (x^2 + y^2) \cos^2 \omega t + p_0
+\end{equation}
+と表せる。したがって、
+\begin{equation}
+  p_e = p(x, y, t) - p(0, 0, t)
+  = \frac{1}{2} \rho a \omega (x^2 - y^2) \sin \omega t
+  - \frac{1}{2} \rho a^2 (x^2 + y^2) \cos^2 \omega t
+\end{equation}
+となる。
+
+\subsection{}
+経路Cを
+\begin{equation}
+  \left\{
+    \boldsymbol{r} =
+    \begin{pmatrix}
+      x \\ y
+    \end{pmatrix} = s
+    \begin{pmatrix}
+      x_p \\ y_p
+    \end{pmatrix}
+    \middle|
+    0 \leq s \leq 1
+  \right\}
+\end{equation}
+とする。経路C上の微小変化を$\mathrm{d} \boldsymbol{r}$、
+単位法線ベクトルを$\boldsymbol{n}$とすると、
+求める値は、
+\begin{equation}
+  \int_C (\boldsymbol{u} \cdot \boldsymbol{n}) |\mathrm{d} \boldsymbol{r}|
+\end{equation}
+と表せる。
+ここで、
+\begin{equation}
+  \mathrm{d} \boldsymbol{r} =
+  \frac{\mathrm{d} \boldsymbol{r}}{\mathrm{d} s} \mathrm{d} s =
+  \begin{pmatrix}
+    x_p \mathrm{d} s \\ y_p \mathrm{d} s
+  \end{pmatrix}
+\end{equation}
+より、
+\begin{equation}
+  \boldsymbol{n} =
+  \frac{1}{\sqrt{x_p^2 + y_p^2}}
+  \begin{pmatrix}
+    y_p \\ -x_p
+  \end{pmatrix},\quad
+  |\mathrm{d} \boldsymbol{r}| =
+  \sqrt{x_p^2 + y_p^2} \mathrm{d} s
+\end{equation}
+であるから、
+\begin{equation}
+  \int_C (\boldsymbol{u} \cdot \boldsymbol{n}) |\mathrm{d} \boldsymbol{r}|
+  = \int_0^1
+  \begin{pmatrix}
+    s a x_p \cos \omega t \\
+    -s a y_p \cos \omega t
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+    y_p \\ -x_p
+  \end{pmatrix} \mathrm{d} s =
+  a x_p y_p \cos \omega t
+\end{equation}
+となる。
+
+\subsection{}
+流体粒子の位置を$\tilde{\boldsymbol{r}}(t) = (\tilde{x}(t), \tilde{y}(t))$とすると、
+\begin{equation}
+  \frac{\mathrm{d} \tilde{\boldsymbol{r}}}{\mathrm{d} t} = \boldsymbol{u}(\tilde{\boldsymbol{r}}(t)) 
+\end{equation}
+が成り立つ。各成分を書き下すと、
+\begin{equation}
+  \begin{aligned}
+    \frac{\mathrm{d} \tilde{x}}{\mathrm{d} t} &= a \tilde{x} \cos \omega t \\
+    \frac{\mathrm{d} \tilde{y}}{\mathrm{d} t} &= -a \tilde{y} \cos \omega t
+  \end{aligned}
+\end{equation}
+であり、ここから、
+\begin{equation}
+  \begin{aligned}
+    \frac{\mathrm{d} \tilde{x}}{\tilde{x}} &= a \cos \omega t \mathrm{d} t \\
+    \frac{\mathrm{d} \tilde{y}}{\tilde{y}} &= -a \cos \omega t \mathrm{d} t
+  \end{aligned}
+\end{equation}
+を得る。両辺を積分した結果は定数$C_x, C_y$を用いて、
+\begin{equation}
+  \begin{aligned}
+    \log \tilde{x} &= \frac{a}{\omega} \sin \omega t + C_x \\
+    \log \tilde{y} &= -\frac{a}{\omega} \sin \omega t + C_y
+  \end{aligned}
+\end{equation}
+と表せる。
+初期条件$\tilde{x}(0) = x_p, \tilde{y}(0) = y_p$を満たすように
+$C_x, C_y$を決定し、
+\begin{equation}
+  \tilde{\boldsymbol{r}} =
+  \begin{pmatrix}
+    \tilde{x} \\ \tilde{y}
+  \end{pmatrix} =
+  \begin{pmatrix}
+    x_p \exp \left(\frac{a}{\omega} \sin \omega t\right) \\
+    y_p \exp \left(-\frac{a}{\omega} \sin \omega t\right)
+  \end{pmatrix}
+\end{equation}
+を得る。
+
+\subsection{}
+求める値は、
+\begin{equation}
+  \left.\frac{\mathrm{d} p(\tilde{x}, \tilde{y}, t)}{\mathrm{d} t}\right|_{t = 0}
+  = \frac{1}{2} \rho a (\omega^2 - 2 a^2)(x_p^2 - y_p^2)
+\end{equation}
+である。
+\end{document}
