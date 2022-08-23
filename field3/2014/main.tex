@@ -15,4 +15,81 @@
 \subsection{}
 式[1],[2]の左辺第1項は局所加速度であり、特定の場所における流速の変化率を表す。
 第2,3項は移流加速度であり、移動する流体粒子の加速度を表す。
+
+\subsection{}
+流体の密度が一様であれば、
+$x$方向、$z$方向の長さがそれぞれ$\Delta x, \Delta z$の微小領域において、
+流出と流入の流量が一致するから、
+\begin{equation}
+  (u + \frac{\partial u}{\partial x} \Delta x - u) \Delta z
+  + (w + \frac{\partial w}{\partial z} \Delta z - w) \Delta x = 0
+\end{equation}
+が成り立つ。両辺を$\Delta x \Delta z$で割ると、
+\begin{equation}
+  \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0
+\end{equation}
+を得る。
+
+\subsection{}
+式(2)より、
+\begin{equation}
+  \begin{aligned}
+    u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z}
+    &= u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z}
+    + u \left(\frac{\partial u}{\partial x} + \frac{\partial w}{\partial z}\right) \\
+    &= \frac{\partial (uu)}{\partial x} + \frac{\partial (uw)}{\partial z}
+  \end{aligned}
+\end{equation}
+であり、同様に、
+\begin{equation}
+  \begin{aligned}
+    u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}
+    &= u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}
+    + w \left(\frac{\partial u}{\partial x} + \frac{\partial w}{\partial z}\right) \\
+    &= \frac{\partial (uw)}{\partial x} + \frac{\partial (ww)}{\partial z}
+  \end{aligned}
+\end{equation}
+が成り立つ。これを式[1],[2]に代入することで、式[3],[4]が得られる。
+
+\subsection{}
+$(x, \eta(t, x))$に存在した水粒子は時間$\Delta t$の間に
+$(x + u \Delta t, \eta(t, x) + w \Delta t)$に移動するから、
+\begin{equation}
+  \eta(t + \Delta t, x + u \Delta t) = \eta(t, x) + w \Delta t
+\end{equation}
+が成り立つ。左辺をTaylor展開で1次近似すると、
+\begin{equation}
+  \eta(t + \Delta t, x + u \Delta t)
+  = \eta(t, x) + \frac{\partial \eta}{\partial t} \Delta t
+  + \frac{\partial \eta}{\partial x} u \Delta t
+\end{equation}
+であり、これを式(5)に代入して整理すると、式[5]が得られる。\par
+同様に、$(x, z_b(x))$に存在した水粒子は時間$\Delta t$の間に
+$(x + u \Delta t, z_b(x) + w \Delta t)$に移動するから、
+\begin{equation}
+  z_b(x + u \Delta t) = z_b(x) + w \Delta t
+\end{equation}
+が成り立つ。左辺をTaylor展開で1次近似すると、
+\begin{equation}
+  z_b(x + u \Delta t)
+  = z_b(x) + \frac{\partial z_b}{\partial x} u \Delta t
+\end{equation}
+であり、これを式(7)に代入して整理すると、式[6]が得られる。
+
+\subsection{}
+式[2]と仮定より、
+\begin{equation}
+  \frac{\partial p}{\partial z}
+  = -\rho \left(g + \frac{\partial w}{\partial t}
+  + u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}\right)
+  \simeq -\rho g
+\end{equation}
+である。これを$z$から$\eta$まで鉛直方向に積分すると、
+\begin{equation}
+  p_0 - p = -\rho g (\eta - z)
+\end{equation}
+となり、式[7]が得られる。å
+
+\subsection{}
+
 \end{document}
