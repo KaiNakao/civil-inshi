@@ -1,0 +1,304 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\usepackage{bm}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2014分野3}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+式[1],[2]の左辺第1項は局所加速度であり、特定の場所における流速の変化率を表す。
+第2,3項は移流加速度であり、移動する流体粒子の加速度を表す。
+
+\subsection{}
+流体の密度が一様であれば、
+$x$方向、$z$方向の長さがそれぞれ$\Delta x, \Delta z$の微小領域において、
+流出と流入の流量が一致するから、
+\begin{equation}
+  (u + \frac{\partial u}{\partial x} \Delta x - u) \Delta z
+  + (w + \frac{\partial w}{\partial z} \Delta z - w) \Delta x = 0
+\end{equation}
+が成り立つ。両辺を$\Delta x \Delta z$で割ると、
+\begin{equation}
+  \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0
+\end{equation}
+を得る。
+
+\subsection{}
+式(2)より、
+\begin{equation}
+  \begin{aligned}
+    u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z}
+    &= u \frac{\partial u}{\partial x} + w \frac{\partial u}{\partial z}
+    + u \left(\frac{\partial u}{\partial x} + \frac{\partial w}{\partial z}\right) \\
+    &= \frac{\partial (uu)}{\partial x} + \frac{\partial (uw)}{\partial z}
+  \end{aligned}
+\end{equation}
+であり、同様に、
+\begin{equation}
+  \begin{aligned}
+    u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}
+    &= u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}
+    + w \left(\frac{\partial u}{\partial x} + \frac{\partial w}{\partial z}\right) \\
+    &= \frac{\partial (uw)}{\partial x} + \frac{\partial (ww)}{\partial z}
+  \end{aligned}
+\end{equation}
+が成り立つ。これを式[1],[2]に代入することで、式[3],[4]が得られる。
+
+\subsection{}
+$(x, \eta(t, x))$に存在した水粒子は時間$\Delta t$の間に
+$(x + u \Delta t, \eta(t, x) + w \Delta t)$に移動するから、
+\begin{equation}
+  \eta(t + \Delta t, x + u \Delta t) = \eta(t, x) + w \Delta t
+\end{equation}
+が成り立つ。左辺をTaylor展開で1次近似すると、
+\begin{equation}
+  \eta(t + \Delta t, x + u \Delta t)
+  = \eta(t, x) + \frac{\partial \eta}{\partial t} \Delta t
+  + \frac{\partial \eta}{\partial x} u \Delta t
+\end{equation}
+であり、これを式(5)に代入して整理すると、式[5]が得られる。\par
+同様に、$(x, z_b(x))$に存在した水粒子は時間$\Delta t$の間に
+$(x + u \Delta t, z_b(x) + w \Delta t)$に移動するから、
+\begin{equation}
+  z_b(x + u \Delta t) = z_b(x) + w \Delta t
+\end{equation}
+が成り立つ。左辺をTaylor展開で1次近似すると、
+\begin{equation}
+  z_b(x + u \Delta t)
+  = z_b(x) + \frac{\partial z_b}{\partial x} u \Delta t
+\end{equation}
+であり、これを式(7)に代入して整理すると、式[6]が得られる。
+
+\subsection{}
+式[2]と仮定より、
+\begin{equation}
+  \frac{\partial p}{\partial z}
+  = -\rho \left(g + \frac{\partial w}{\partial t}
+  + u \frac{\partial w}{\partial x} + w \frac{\partial w}{\partial z}\right)
+  \simeq -\rho g
+\end{equation}
+である。これを$z$から$\eta$まで鉛直方向に積分すると、
+\begin{equation}
+  p_0 - p = -\rho g (\eta - z)
+\end{equation}
+となり、式[7]が得られる。
+
+\subsection{}
+式[3]に$u = U$を代入すると、$U$は$z$に依存しないから、
+\begin{equation}
+  \frac{\partial U}{\partial t} + \frac{\partial U^2}{\partial x}
+  + U \frac{\partial w}{\partial z} = -\frac{1}{\rho} \frac{\partial p}{\partial x}
+  + \frac{1}{\rho} \frac{\partial \tau_{zx}}{\partial z}
+\end{equation}
+となる。左辺の第1,2項は$z$に依存しないため、その積分は、
+\begin{equation}
+  \int_{z_b}^{\eta} \left(\frac{\partial U}{\partial t} + \frac{\partial U^2}{\partial x}\right) \mathrm{d} z
+  = \left(\frac{\partial U}{\partial t} + \frac{\partial U^2}{\partial x}\right) (\eta - z_b)
+  = \frac{\partial U}{\partial t} h + \frac{\partial U^2}{\partial x} h
+\end{equation}
+となる。左辺第3項の積分は、
+\begin{equation}
+  \int_{z_b}^{\eta} U \frac{\partial w}{\partial z} \mathrm{d} z
+  = U \int_{z_b}^{\eta} \frac{\partial w}{\partial z} \mathrm{d} z
+  = U \left(w(t, x, \eta) - w(t, x, z_b)\right)
+\end{equation}
+であり、式[5],[6]の境界条件を用いると、$h = \eta - z_b$であるから、
+\begin{equation}
+  \int_{z_b}^{\eta} U \frac{\partial w}{\partial z} \mathrm{d} z
+  = U \left\{\frac{\partial \eta}{\partial t} + u \left(\frac{\partial \eta}{\partial x}
+  - \frac{\partial z_b}{\partial x}\right)\right\}
+  = U \frac{\partial h}{\partial t} + U^2 \frac{\partial h}{\partial x}
+\end{equation}
+となる。したがって、式(11)の左辺の積分は、
+\begin{equation}
+  \int_{z_b}^{\eta} \left(\frac{\partial U}{\partial t} + \frac{\partial U^2}{\partial x}
+  + U \frac{\partial w}{\partial z}\right) \mathrm{d} z
+  = \frac{\partial U}{\partial t} h + \frac{\partial U^2}{\partial x} h
+  + U \frac{\partial h}{\partial t} + U^2 \frac{\partial h}{\partial x}
+  = \frac{\partial}{\partial t} (U h) + \frac{\partial}{\partial x} (U^2 h)
+\end{equation}
+となる。次に、式[7]を用いると、
+\begin{equation}
+  \frac{\partial p}{\partial x}
+  = \frac{\partial}{\partial x} \left\{p_0 + \rho g (\eta - z)\right\}
+  = \rho g \frac{\partial \eta}{\partial x}
+\end{equation}
+で$z$に依存しないから、式(11)の右辺第1項の積分は、
+\begin{equation}
+  \int_{z_b}^{\eta} \left(-\frac{1}{\rho} \frac{\partial p}{\partial x}\right) \mathrm{d} z
+  = -\frac{1}{\rho} \rho g \frac{\partial \eta}{\partial x} \int_{z_b}^{\eta} \mathrm{d} z
+  = -g h \frac{\partial \eta}{\partial x}
+\end{equation}
+となる。式(11)の右辺第2項の積分は、
+\begin{equation}
+  \int_{z_b}^{\eta} \frac{1}{\rho} \frac{\partial \tau_{zx}}{\partial z} \mathrm{d} z
+  = \frac{1}{\rho} \left(\tau_{zx}(x, \eta) - \tau_{zx}(x, z_b)\right)
+  = \frac{\tau_{sx} - \tau_{bx}}{\rho}
+\end{equation}
+となる。以上より、
+\begin{equation}
+  \frac{\partial}{\partial t} (U h) + \frac{\partial}{\partial x} (U^2 h)
+  = -g h \frac{\partial \eta}{\partial x} + \frac{\tau_{sx} - \tau_{bx}}{\rho}
+\end{equation}
+が示された。
+
+\subsection{}
+式(2)の連続式に$u = U$を代入し、
+\begin{equation}
+  \frac{\partial U}{\partial x} + \frac{\partial w}{\partial z} = 0
+\end{equation}
+を得る。左辺第1項は$z$に依存しないため、その積分は
+\begin{equation}
+  \int_{z_b}^{\eta} \frac{\partial U}{\partial x} \mathrm{d} z
+  = \frac{\partial U}{\partial x} (\eta - z_b)
+  = \frac{\partial U}{\partial x} h
+\end{equation}
+となる。左辺第2項の積分は、式(13),(14)を$U$で割った値であるから、
+\begin{equation}
+  \int_{z_b}^{\eta} \frac{\partial w}{\partial z} \mathrm{d} z
+  = \frac{\partial h}{\partial t} + U \frac{\partial h}{\partial x}
+\end{equation}
+である。したがって、
+\begin{equation}
+  \frac{\partial U}{\partial x} h + \frac{\partial h}{\partial t} + U \frac{\partial h}{\partial x} = 0
+\end{equation}
+であり、これより、
+\begin{equation}
+  \frac{\partial \eta}{\partial t} + \frac{\partial}{\partial x} (Uh) = 0
+\end{equation}
+が得られる。
+
+\subsection{}
+$\eta$と$h$の時間変化が小さいため式[8]の左辺第1項について、
+\begin{equation}
+  \frac{\partial}{\partial t} (U h)
+  = \frac{\partial U}{\partial t} h + U \frac{\partial h}{\partial t}
+  = \frac{\partial U}{\partial t} h + U \frac{\partial \eta}{\partial t}
+  \simeq 0
+\end{equation}
+と近似できる。次に、連続式より
+\begin{equation}
+  \frac{\partial \eta}{\partial t} + \frac{\partial}{\partial x} (Uh)
+  \simeq \frac{\partial}{\partial x} (Uh) = 0
+\end{equation}
+であり、微分を展開すると、
+\begin{equation}
+  \frac{\partial U}{\partial x} = -\frac{U}{h} \frac{\partial h}{\partial x}
+\end{equation}
+が得られる。これを用いると、式[8]の左辺第2項について、
+\begin{equation}
+  \frac{\partial}{\partial x} (U^2 h)
+  = \frac{\partial U}{\partial x} U h + U \frac{\partial (U h)}{\partial x}
+  = - U^2 \frac{\partial h}{\partial x}
+\end{equation}
+である。以上のことと$\eta = z_b + h, \tau_{sx} = 0$を用いると、式[8]は
+\begin{equation}
+  - U^2 \frac{\partial h}{\partial x}
+  = -g h \left(\frac{\partial z_b}{\partial x}
+  + \frac{\partial h}{\partial x}\right) - \frac{\tau_{bx}}{\rho}
+\end{equation}
+と表せる。両辺を$gh$で割って整理すると、フルード数$\mathrm{Fr} = U/\sqrt{gh}$を用いて、
+\begin{equation}
+  \frac{\partial z_b}{\partial x}
+  + (1 - \mathrm{Fr}^2) \frac{\partial h}{\partial x}
+  + \frac{\tau_{bx}}{\rho g h} = 0
+\end{equation}
+が得られる。$x$軸方向の$h$の変化は$z_b$の変化に対して小さいから、
+\begin{equation}
+  \frac{\partial z_b}{\partial x}
+  + (1 - \mathrm{Fr}^2) \frac{\partial h}{\partial x}
+  \simeq \frac{\partial z_b}{\partial x}
+\end{equation}
+で近似でき、
+\begin{equation}
+  -i + I_f = 0
+\end{equation}
+が得られる。
+
+\subsection{}
+式[13]を式[12]に代入して、さらにそれを式[11]に代入すると、
+\begin{equation}
+  -i + \frac{f^{\prime}}{2gh} U^2 = 0
+\end{equation}
+が得られる。したがって、
+\begin{equation}
+  U = \sqrt{\frac{2 i g h}{f^{\prime}}}
+\end{equation}
+である。
+
+\subsection{}
+kinematic waveの流量を$Q_k$と表すと、式(34)より、
+\begin{equation}
+  Q_k = \sqrt{\frac{2 i g h}{f^{\prime}}} h
+  = \sqrt{\frac{2 i g h^3}{f^{\prime}}}
+\end{equation}
+となる。
+一方で、式[15]を変形すると、
+\begin{equation}
+  U = \sqrt{\frac{2 g h}{f^{\prime}}
+  \left(i_0 - \frac{\partial h}{\partial x}\right)}
+\end{equation}
+が得られ、diffusion waveの流量を$Q_d$とすると、
+\begin{equation}
+  Q_d = \sqrt{\frac{2 g h}{f^{\prime}}
+  \left(i_0 - \frac{\partial h}{\partial x}\right)} h
+  = \sqrt{\frac{2 g h^3}{f^{\prime}}
+  \left(i_0 - \frac{\partial h}{\partial x}\right)}
+\end{equation}
+である。$Q_d$の値は流下方向の水深変化に依存し、水深の勾配に応じて複数の
+$H-Q$曲線が必要になる。
+同一の$h$に対して、水深が減少する区間では$Q_d > Q_k$で、
+水深が増加する区間では$Q_d < Q_k$である。
+
+\subsection{}
+流速が$\sqrt{gh}$より十分に小さい。
+水位の時間変化は無視できるが、流速の時間変化は無視できない。
+底面せん断応力は小さい。
+
+\subsection{}
+水面形は時間変化しないが、流速は重力加速度の変動や水位勾配に応じて時間変化する。
+diffusion waveでは水面形を与えると流量が定まったが、この場合は水面形が決まっても
+流速は変化し続ける。
+
+\section{}
+\subsection{}
+\subsubsection{}
+\begin{itemize}
+  \item 一般資産水害被害額の平均は安定しているが、7年程度の周期で変動している。
+  \item 総浸水面積と宅地等浸水面積は減少傾向にある。
+  \item 総浸水面積に対する宅地等浸水面積の割合は減少傾向にある。
+\end{itemize}
+
+\subsubsection{}
+1975年頃から1990年頃までは都市河川の洪水に対する防御等に注力し、
+宅地等浸水面積を減少させてきた。
+それ以降も宅地以外の地域での防災を加えて進めて総浸水面積を減少させてきた。
+一般資産水害密度は増加傾向にあり、
+これは都市地域に財が集中していることや人口密度の増加を反映していると考えられる。
+
+\subsubsection{}
+気候変動に伴う極端な気象現象の増加で水害につながるハザードは増える。
+これにより宅地等浸水面積と総浸水面積が増加する。
+都市におけるサービスの集中はより一層進行し、一般資産水害密度は大きくなる。
+したがって、一般資産水害被害額は浸水面積を上回る速さで大きくなる。
+
+\subsection{}
+\subsubsection{}
+沖波が防波堤によって遮られることで、本来は岸に向かって移動していた土砂が
+防潮堤に沿って堆積する。土砂の供給が少なくなった海岸は河川流による侵食が進行する。
+
+\subsubsection{}
+物理的な防御のレベルをどこまで高めてもそれを上回るハザードが発生する可能性はある。
+防波堤に頼り切った市民が防災能力を持たないようになることで、
+超過ハザードに対して莫大な被害を出すようでは良くない。
+堤内で生活する市民が防災能力・意識をもつためのソフト対策や避難設備にも投資し、
+物理的な防御と組み合わせることで、
+あらゆるレベルのハザードに対してなるべく強い状態を保つことが望ましい。
+\end{document}
