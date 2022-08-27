@@ -73,7 +73,7 @@ $$
 正規方程式：最小二乗法の解となる式。
 
 $$
-\hat{\boldsymbol{\beta}} = (\bf{X}'\bf{X})^{-1}\bold{X}'\boldsymbol{y}
+\hat{\boldsymbol{\beta}} = (\bf{X}'\bf{X})^{-1}\bf{X}'\boldsymbol{y}
 $$
 
 ただし $\hat{\boldsymbol{\beta}} = [X_B, X_C]'$ （緯距の場合）、 $\bf{X} = \begin{bmatrix} 1 & 0 \\ -1 & 1 \\ 0 & -1\end{bmatrix}$ 。 $\boldsymbol{y}$ は(a)の式の左辺。
