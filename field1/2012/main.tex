@@ -141,5 +141,223 @@ $\lambda(s = \pi R / 2) = 0$とすると、式(7),(8)より
 を得る。
 
 \section{}
-あーー
+\subsection{}
+運動方程式は、
+\begin{equation}
+  \begin{aligned}
+    m \ddot{x}_1 + k x_1 + k (x_1 - x_2) &= -m \ddot{z} \\
+    m \ddot{x}_2 + k (x_2 - x_1) &= -m \ddot{z}
+  \end{aligned}
+\end{equation}
+であり、これを行列表示すると、
+\begin{equation}
+  \begin{pmatrix}
+    m & 0 \\
+    0 & m
+  \end{pmatrix}
+  \begin{pmatrix}
+    \ddot{x}_1 \\
+    \ddot{x}_2
+  \end{pmatrix} +
+  \begin{pmatrix}
+    2k & -k \\
+    -k & k
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1 \\ x_2
+  \end{pmatrix} =
+  \begin{pmatrix}
+    -m \ddot{z} \\
+    -m \ddot{z}
+  \end{pmatrix}
+\end{equation}
+である。
+
+\subsection{}
+行列$M,K$を
+\begin{equation}
+  M =
+  \begin{pmatrix}
+    m & 0 \\
+    0 & m
+  \end{pmatrix},\quad
+  K =
+  \begin{pmatrix}
+    2k & -k \\
+    -k & k
+  \end{pmatrix}
+\end{equation}
+と定義すると、固有振動数$\omega$と固有モード$\boldsymbol{\phi}$について、
+\begin{equation}
+  (K - \omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}
+\end{equation}
+が成り立つ。$\boldsymbol{\phi} = 0$となる解が存在するには、
+\begin{equation}
+  \det (K - \omega^2 M) = 0
+\end{equation}
+が必要である。式(35)を解くと、
+\begin{equation}
+  \omega = \sqrt{\frac{3 \pm \sqrt{5}}{2}} \omega_0
+\end{equation}
+となる。ここで、$\omega_0 = \sqrt{k / m}$である。\par
+$\omega = \sqrt{\frac{3 - \sqrt{5}}{2}} \omega_0$のとき、
+式(34)を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    1 \\
+    \frac{1 + \sqrt{5}}{2}
+  \end{pmatrix}
+\end{equation}
+である。これを1次モードとすると、
+\begin{equation}
+  \omega_1 = \sqrt{\frac{3 - \sqrt{5}}{2}} \omega_0 \quad
+  \boldsymbol{\phi}_1 =
+  \begin{pmatrix}
+    1 \\
+    \frac{1 + \sqrt{5}}{2}
+  \end{pmatrix}
+\end{equation}
+である。\par
+$\omega = \sqrt{\frac{3 + \sqrt{5}}{2}} \omega_0$のとき、
+式(34)を解くと、
+\begin{equation}
+  \boldsymbol{\phi} \propto
+  \begin{pmatrix}
+    1 \\
+    \frac{1 - \sqrt{5}}{2}
+  \end{pmatrix}
+\end{equation}
+である。これを2次モードとすると、
+\begin{equation}
+  \omega_2 = \sqrt{\frac{3 + \sqrt{5}}{2}} \omega_0 \quad
+  \boldsymbol{\phi}_2 =
+  \begin{pmatrix}
+    1 \\
+    \frac{1 - \sqrt{5}}{2}
+  \end{pmatrix}
+\end{equation}
+である。\par
+
+\subsection{}
+ベクトル$\boldsymbol{P}, \boldsymbol{x}$を
+\begin{equation}
+  \boldsymbol{P} =
+  \begin{pmatrix}
+    -m \ddot{z} \\
+    -m \ddot{z}
+  \end{pmatrix} =
+  \begin{pmatrix}
+    m z_0 \omega^2 \sin \omega_t \\
+    m z_0 \omega^2 \sin \omega_t
+  \end{pmatrix}, \quad
+  \boldsymbol{x} =
+  \begin{pmatrix}
+    x_1 \\ x_2
+  \end{pmatrix}
+\end{equation}
+とすると、運動方程式は、
+\begin{equation}
+  M \ddot{\boldsymbol{x}} + K \boldsymbol{x} = \boldsymbol{P}
+\end{equation}
+と表せる。
+$\boldsymbol{x}$を固有振動の重ね合わせとして、
+スカラー$q_1, q_2$を用いて
+\begin{equation}
+  \boldsymbol{x}
+  = q_1 \boldsymbol{\phi}_1 + q_2 \boldsymbol{\phi}_2
+\end{equation}
+と表すと、固有モードの直交性より、
+\begin{equation}
+  \begin{aligned}
+    \boldsymbol{\phi}_1^T M \boldsymbol{\phi}_1 \ddot{q}_1
+    + \boldsymbol{\phi}_1^T K \boldsymbol{\phi}_1 \ddot{q}_1
+    &= \boldsymbol{\phi}_1^T \boldsymbol{P} \\
+    \boldsymbol{\phi}_2^T M \boldsymbol{\phi}_2 \ddot{q}_2
+    + \boldsymbol{\phi}_2^T K \boldsymbol{\phi}_2 \ddot{q}_2
+    &= \boldsymbol{\phi}_2^T \boldsymbol{P}
+  \end{aligned}
+\end{equation}
+が成り立つ。これを計算すると、
+\begin{equation}
+  \begin{aligned}
+    \frac{5 + \sqrt{5}}{2} m \ddot{q}_1
+    + \frac{5 - \sqrt{5}}{2} k q_1
+    &= \frac{3 + \sqrt{5}}{2} m z_0 \omega^2 \sin \omega t \\
+    \frac{5 - \sqrt{5}}{2} m \ddot{q}_2
+    + \frac{5 + \sqrt{5}}{2} k q_2
+    &= \frac{3 - \sqrt{5}}{2} m z_0 \omega^2 \sin \omega t \\
+  \end{aligned}
+\end{equation}
+を得る。この強制振動の方程式に対する定常解は、
+\begin{equation}
+  \begin{aligned}
+    q_1 &= \frac{\frac{3 + \sqrt{5}}{2} m z_0 \omega^2}{\frac{5 - \sqrt{5}}{2} k}
+    \frac{1}{1 - \left(\frac{\omega}{\omega_1}\right)^2} \sin \omega t
+    = \frac{4 z_0 \omega^2}{(5 - \sqrt{5})\{(3 - \sqrt{5}) \omega_0^2 - 2 \omega^2\}} \\
+    q_2 &= \frac{\frac{3 - \sqrt{5}}{2} m z_0 \omega^2}{\frac{5 + \sqrt{5}}{2} k}
+    \frac{1}{1 - \left(\frac{\omega}{\omega_2}\right)^2} \sin \omega t
+    = \frac{4 z_0 \omega^2}{(5 + \sqrt{5})\{(3 + \sqrt{5}) \omega_0^2 - 2 \omega^2\}}
+  \end{aligned}
+\end{equation}
+と求められる。これを式(43)に代入すると、
+$\boldsymbol{x}$の定常応答は、
+\begin{equation}
+  \boldsymbol{x} = 
+  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+  \end{pmatrix} =
+  \frac{\omega^2  z0}{\omega^4 - 3 \omega^2 \omega_0^2 + \omega_0^4}
+  \begin{pmatrix}
+    2 \omega_0^2 - \omega^2 \\ 
+    3 \omega_0^2 - \omega^2 \\
+  \end{pmatrix}
+  \sin \omega t
+\end{equation}
+と求められる。$x_1 = 0$または$x_2 = 0$が任意の時間で成り立つには、
+\begin{equation}
+  \omega = \sqrt{2} \omega_0, \sqrt{3} \omega
+\end{equation}
+であればよい。
+
+\subsection{}
+式(47)より、
+\begin{equation}
+  \begin{aligned}
+    X_1(\omega) &= \left|\frac{\omega^2 (2 \omega_0^2 - \omega^2) z0}{\omega^4 - 3 \omega^2 \omega_0^2 + \omega_0^4}\right| \\
+    X_2(\omega) &= \left|\frac{\omega^2 (3 \omega_0^2 - \omega^2) z0}{\omega^4 - 3 \omega^2 \omega_0^2 + \omega_0^4}\right| \\
+  \end{aligned}
+\end{equation}
+である。これを固有振動数$\omega = \omega_1, \omega2$、
+零点$\omega = \sqrt{2} \omega_0, \sqrt{3} \omega$、
+無限大$\omega \to \infty$について求めると、
+\begin{align}
+  \left(X_1(\omega_1), X_2(\omega_1)\right) &= (\infty, \infty) \\
+  \left(X_1(\omega_2), X_2(\omega_2)\right) &= (\infty, \infty) \\
+  \left(X_1(\sqrt{2} \omega_0), X_2(\sqrt{2} \omega_0)\right) &= (0, 2 z_0) \\
+  \left(X_1(\sqrt{3} \omega_0), X_2(\sqrt{3} \omega_0)\right) &= (3 z_0, 0) \\
+  \left(X_1(\infty), X_2(\infty)\right) &= (z_0, z_0)
+\end{align}
+である。任意の$\omega > 0$に対して
+$X_1(\omega), X_2(\omega)$を図示すると、
+図3,4のようになる。
+\begin{figure}
+  \begin{minipage}{0.5\hsize}
+    \centering
+    \includegraphics[width=\hsize]{fig3.png}
+    \caption{$X_1$の分布}
+  \end{minipage}
+  \begin{minipage}{0.5\hsize}
+    \centering
+    \includegraphics[width=\hsize]{fig4.png}
+    \caption{$X_2$の分布}
+  \end{minipage}
+\end{figure}
+
+\subsection{}
+質量が多数の層になって分布しているときには、
+特定の層で応答が大きくなる外力の振動数において、
+他の層での応答が小さくなる場合がある。
+複数の振動モードを検討して、それぞれの層において厳しくなるような外力を別々に設定する必要がある。
 \end{document}
