@@ -9,7 +9,7 @@ $$
 $V_b-V_c$ の値で場合分けすればよい。
 
 $$
-\begin{cases}    0 & (V_b-V_c<-L) \\    \frac{1}{2L^2}(V_b-V_c+L)^2 & (-L \le V_b-V_c \le 0)\\    -\frac{1}{2L^2}(V_b-V_c-L)^2+1 & (0 < V_b-V_c \le L)\\    1 & (L<V_b-V_c)\end{cases}
+\begin{cases}    0 & (V_b-V_c < -L) \\    \frac{1}{2L^2}(V_b-V_c+L)^2 & (-L \le V_b-V_c \le 0)\\    -\frac{1}{2L^2}(V_b-V_c-L)^2+1 & (0 < V_b-V_c \le L)\\    1 & (L < V_b-V_c)\end{cases}
 $$
 
 ## (2)
@@ -53,7 +53,7 @@ $$
 行列で書くと、
 
 $$
-\begin{bmatrix}    s_1 \cos \theta_1 + X_A \\    s_2 \cos \theta_2 \\    s_3 \cos \theta_3 - X_D \\\end{bmatrix}=\begin{bmatrix}    1 & 0 \\    -1 & 1 \\    0 & -1\end{bmatrix}\begin{bmatrix}    X_B \\    X_C\end{bmatrix}+ \boldsymbol{u}_X
+\begin{bmatrix}    s_1 \cos \theta_1 + X_A \\    s_2 \cos \theta_2 \\    s_3 \cos \theta_3 - X_D \end{bmatrix}=\begin{bmatrix}    1 & 0 \\    -1 & 1 \\    0 & -1\end{bmatrix}\begin{bmatrix}    X_B \\    X_C\end{bmatrix}+ \boldsymbol{u}_X
 $$
 
 Y座標差（経距）の観測方程式は、
@@ -65,7 +65,7 @@ $$
 行列で書くと、
 
 $$
-\begin{bmatrix}    s_1 \sin \theta_1 + Y_A \\    s_2 \sin \theta_2 \\    s_3 \sin \theta_3 - Y_D \\\end{bmatrix}=\begin{bmatrix}    1 & 0 \\    -1 & 1 \\    0 & -1\end{bmatrix}\begin{bmatrix}    Y_B \\    Y_C\end{bmatrix}+ \boldsymbol{u}_Y
+\begin{bmatrix}    s_1 \sin \theta_1 + Y_A \\    s_2 \sin \theta_2 \\    s_3 \sin \theta_3 - Y_D \end{bmatrix}=\begin{bmatrix}    1 & 0 \\    -1 & 1 \\    0 & -1\end{bmatrix}\begin{bmatrix}    Y_B \\    Y_C\end{bmatrix}+ \boldsymbol{u}_Y
 $$
 
 ### (b)
@@ -73,17 +73,17 @@ $$
 正規方程式：最小二乗法の解となる式。
 
 $$
-\hat{\boldsymbol{\beta}} = (\bold{X}'\bold{X})^{-1}\bold{X}'\boldsymbol{y}
+\hat{\boldsymbol{\beta}} = (\bf{X}'\bf{X})^{-1}\bold{X}'\boldsymbol{y}
 $$
 
-ただし $\hat{\boldsymbol{\beta}} = [X_B, X_C]'$ （緯距の場合）、 $\bold{X} = \begin{bmatrix} 1 & 0 \\ -1 & 1 \\ 0 & -1\end{bmatrix}$ 。 $\boldsymbol{y}$ は(a)の式の左辺。
+ただし $\hat{\boldsymbol{\beta}} = [X_B, X_C]'$ （緯距の場合）、 $\bf{X} = \begin{bmatrix} 1 & 0 \\ -1 & 1 \\ 0 & -1\end{bmatrix}$ 。 $\boldsymbol{y}$ は(a)の式の左辺。
 
 ### (c)
 
-観測精度が測線の長さに比例する場合はコンパス法則、緯距の絶対値に比例する場合はトランジット法則に基づき、補正用の行列 $\bold{\Omega}$ を決定して以下のような式に変更する。
+観測精度が測線の長さに比例する場合はコンパス法則、緯距の絶対値に比例する場合はトランジット法則に基づき、補正用の行列 $\bf{\Omega}$ を決定して以下のような式に変更する。
 
 $$
-\hat{\boldsymbol{\beta}} = (\bold{X}'\bold{\Omega}^{-1}\bold{X})^{-1}\bold{X}'\bold{\Omega}^{-1}\boldsymbol{y}
+\hat{\boldsymbol{\beta}} = (\bf{X}'\bf{\Omega}^{-1}\bf{X})^{-1}\bf{X}'\bf{\Omega}^{-1}\boldsymbol{y}
 $$
 
 ## (2)
