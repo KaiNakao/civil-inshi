@@ -253,4 +253,53 @@ $H = \frac{2 \varDelta u \sinh k h}{\omega \sin \theta}$が計算できる。
 また、$k, h$が既知であるから、浅水係数$K_s$が式(23)から計算できる。\par
 \underline{沖波波高$H_0$は
 $H_0 = \frac{H}{K_s}$として計算できる。}
+
+\subsection{}
+任意の地点に観測点をとり、海底における岸に垂直な水平方向の流速と水圧を計測する。
+入射波と反射波の波形をそれぞれ
+\begin{equation}
+  \eta_I = a_I \cos (kx - \omega t),\quad
+  \eta_R = a_R \cos (kx + \omega t)
+\end{equation}
+とすると、微小振幅波理論によりそれぞれの水平方向流速は
+\begin{equation}
+  u_I = \frac{\omega}{\sinh k h} \eta_I,\quad
+  u_R = \frac{\omega}{\sinh k h} \eta_R
+\end{equation}
+と表せる。これより、流速の観測値$u$について、
+\begin{equation}
+  u = u_I - u_R = \frac{\omega}{\sinh k h} (\eta_I - \eta_R)
+\end{equation}
+と表せる。\par
+海底での水圧の観測値$p$は、
+\begin{equation}
+  p = \rho g h + \rho g (\eta_I + \eta_R)
+\end{equation}
+となる。ここで、$h$は水深である。$p$の時間平均について、
+$\overline{p} = \rho g h$より、
+$h = \frac{\overline{p}}{g h}$が計算できる。\par
+また、
+\begin{equation}
+  \begin{aligned}
+    \eta_I + \eta_R
+    &= a_I (\cos k x \cos \omega t + \sin k x \sin \omega t)
+    + a_R (\cos k x \cos \omega t - \sin k x \sin \omega t) \\
+    &= (a_I + a_R) \cos k x \cos \omega t
+    + (a_I - a_R) \sin k x \sin \omega t \\
+    &= \sqrt{(a_I + a_R)^2 \cos^2 k x + (a_I - a_R)^2 \sin^2 k x} \cos (\omega t - \delta)
+  \end{aligned}
+\end{equation}
+と表せることから、$\eta_I + \eta_R$の振動数は$\omega$である。
+$p$の振動成分は$\rho g (\eta_I + \eta_R) \propto \eta_I + \eta_R$より、
+$p$の振動数も$\omega$である。ここから$\omega$が決定できる。\par
+さらに分散関係式$\omega^2 = g k \tanh k h$において
+$\omega, h$が既知であるから、これを満たす波数$k$が定まる。\par
+式(27),(28)より、
+\begin{align}
+  \eta_I &= \frac{1}{2} \left(\frac{p}{\rho g} - h + \frac{u \sinh k h}{\omega}\right) \\
+  \eta_R &= \frac{1}{2} \left(\frac{p}{\rho g} - h - \frac{u \sinh k h}{\omega}\right)
+\end{align}
+が成り立つ。$h, \omega, k$が既知であるから、
+$u, p$の観測から、その点における$\eta_I, \eta_R$の信号を推定することができる。
+ここから反射率$K_R = \frac{\max \eta_I}{\max \eta_R}$が求められる。
 \end{document}
