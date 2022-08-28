@@ -177,6 +177,80 @@ diffusion waveでは、水深の勾配に応じて、kinematic waveからの流�
 自身がどのタイプの災害を恐れるべきか理解できる。
 
 \section{}
+\subsection{}
+Manningの式より$n = v^{-1} R^{\frac{3}{2}} I^{\frac{1}{2}}$である。
+ここで、$v$は断面平均流速、$R$は径深、$I$はエネルギー勾配である。
+水路が幅広矩形断面であるから、$R$は水深$h$で近似できる。
+$I$は水面の勾配で近似する。$v$は断面内複数点で流速を計測したときの平均値とする。
 
+\subsection{}
+\subsubsection{}
+図2のように岸に垂直な方向に$d$だけ離して2つの観測点A,Bをとる。
+波の進行方向に$x$軸をとる。
+$d$は波長$L$に対して十分小さく、点A,Bにおける水深は共通であるとする。\par
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.3\hsize]{fig2.png}
+  \caption{Survey plan Aの設定}
+\end{figure}
+微小振幅波理論により点A,Bの海底における水圧は、それぞれ
+\begin{align}
+  p_A(t) &= \rho g h + \frac{\rho g H}{2 \cosh k h} \cos (k x_A - \omega t) \\
+  p_B(t) &= \rho g h + \frac{\rho g H}{2 \cosh k h} \cos (k x_B - \omega t) \\
+\end{align}
+と表せる。\par
+$p_A(t), p_B(t)$の両方において、時間平均の値は$\rho g h$であり、ここから
+$h = \frac{\overline{\rho (t)}}{\rho g}$が計算できる。\par
+また$p_A(t),p_B(t)$の振動周期は波の周期$T$に等しく、\underline{この値が時系列から読み取れる。}\par
+さらに、波の角振動数$\omega$は$\omega = \frac{2 \pi}{T}$で計算でき、分散関係式
+$\omega^2 = g k \tanh k h$を考えれば$\omega, g, h$が既知だから
+これを満たす波数$k$が定まる。\par
+$p_A(t),p_B(t)$について、振動の振幅$\varDelta p$はどちらも
+$\frac{\rho g H}{2 \cosh k h}$である。これより、
+$H = \frac{2 \varDelta p \cosh k h}{\rho g}$が計算できる。\par
+浅水係数$K_s$は、
+\begin{equation}
+  K_s = \sqrt{\frac{1}{2 n \tanh k h}},\quad
+  n = \frac{1}{2} \left(1 + \frac{2 k h}{\sinh 2 k h}\right)
+\end{equation}
+と表され、$k,h$が既知であるからこの値が計算できる。
+\underline{沖波波高$H_0$は
+$H_0 = \frac{H}{K_s}$として計算できる。} \par
+$p_B(t) = p_A(t - \frac{k (x_b - x_a)}{\omega})$と表せるため、
+$p_A(t)$と$p_B(t)$の時間ずれを$\varDelta t$とすると、
+$\varDelta t = \frac{k(x_b - x_a)}{\omega}$である。
+$x_b - x_a = d \cos \theta$であるから、
+$\cos \theta = \frac{\omega \varDelta t}{k d}$となり、
+\underline{$\theta = \arccos \frac{\omega \varDelta t}{k d}$が計算できる。}
+
+\subsubsection{}
+図3のように任意の地点に観測点をとり、岸に平行な方向の流速$u_h(t)$と
+岸に垂直な方向の流速$u_v(t)$を測定する。波の進行方向に$x$軸をとる。\par
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.3\hsize]{fig3.png}
+  \caption{Survey plan Bの設定}
+\end{figure}
+微小振幅波理論によれば観測点において$x$軸方向の流速$u(t)$は
+\begin{equation}
+  u(t) = \frac{H \omega}{2 \sinh k h} \cos (k x - \omega t)
+\end{equation}
+と表される。$H$は波高、$\omega$は波の角振動数、$k$は波の波数である。
+このとき、
+$u_h(t) = u(t) \sin \theta, u_v(t) = u(t) \cos \theta$
+より、
+$\overline{u_h(t)} = \overline{u_(t)} \sin \theta, \overline{u_v(t)} = \overline{u_(t)} \cos \theta$
+である。これより
+\underline{$\theta = \arctan \frac{\overline{u_h(t)}}{\overline{u_v(t)}}$が計算できる。} \par
+\underline{$u_h(t),u_v(t)$の振動の周期は波の周期$T$に一致}し、
+$\omega = \frac{2 \pi}{T}$が計算できる。
+これと分散関係式
+$\omega^2 = g k \tanh k h$を考えれば、
+$\omega, h$が既知だからこれを満たす$k$が定まる。\par
+$u_h(t)$の振幅は$\frac{H \omega \sin \theta}{2 \sinh k h}$であり、
+この値を$\varDelta u$とすると、$\omega, \theta, k, h$が既知であるから
+$H = \frac{2 \varDelta u \sinh k h}{\omega \sin \theta}$が計算できる。
+また、$k, h$が既知であるから、浅水係数$K_s$が式(23)から計算できる。\par
+\underline{沖波波高$H_0$は
+$H_0 = \frac{H}{K_s}$として計算できる。}
 \end{document}
-
