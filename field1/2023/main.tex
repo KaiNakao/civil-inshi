@@ -1,0 +1,178 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2023 分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+変形後の部材の扇形がなす頂角を$\Delta \theta$として，
+中立軸から高さ$y$離れた部分の変形後の長さを$\Delta s$とすると，
+\begin{equation}
+  \label{eq:delta_s}
+  \Delta s = (R - y) \Delta \theta
+\end{equation}
+が成り立つ．
+中立面では軸ひずみが生じないため
+$\Delta s = 0$となるから
+\begin{equation}
+  \Delta \theta = \frac{dx}{R}
+\end{equation}
+である．これを式(\ref{eq:delta_s})に代入して，
+\begin{equation}
+  \Delta s = \left(1 - \frac{y}{R}\right) dx
+\end{equation}
+が得られる．
+これより，軸ひずみ$\varepsilon$と軸応力$\sigma$は
+\begin{align}
+  \varepsilon & = \frac{\Delta s - dx}{dx} = -\frac{y}{R} \\
+  \sigma      & = -E \varepsilon = - \frac{E y}{R}
+\end{align}
+となる．
+
+\subsection{}
+はりに生じる弾性エネルギー$H$は，
+\begin{equation}
+  \begin{aligned}
+    H & = \frac{1}{2} \int_V \sigma \varepsilon \mathrm{d} V    \\
+      & = \frac{1}{2} \int_{-b/2}^{b/2} \int_{-h}^h \int_0^L
+    \left(-\frac{E y}{R}\right) \left(-\frac{y}{R}\right)
+    \mathrm{d} x \mathrm{d} y \mathrm{d} z                      \\
+      & = \frac{E}{2} \int_{-b/2}^{b/2} \int_{-h}^h y^2
+    \mathrm{d} y \mathrm{d} z \int_0^L \frac{\mathrm{d} x}{R^2} \\
+      & = \frac{E I}{2} \int_0^L \frac{\mathrm{d} x}{R^2}
+  \end{aligned}
+\end{equation}
+となる．
+
+\subsection{}
+$w = \alpha x^3 + \beta x^2$のとき，
+\begin{equation}
+  \frac{1}{R} = 6 \alpha x + 2 \beta
+\end{equation}
+であるから，
+\begin{equation}
+  \begin{aligned}
+    H & = \frac{E}{2} I \int_0^L (6 \alpha x + 2 \beta)^2 \mathrm{d} x \\
+      & = 2 E I L (3 \alpha^2 L^2 + 3 \alpha \beta L + \beta^2)
+  \end{aligned}
+\end{equation}
+を得る．したがって，$\Delta H$は
+\begin{equation}
+  \Delta H = 2 E I L \left(3 \alpha^2 L^2 + 3 \alpha \beta + \beta^2\right)
+  - P \left(\alpha L^3 + \beta L^2\right)
+\end{equation}
+と表される．$\alpha, \beta$による$H$の偏微分を$0$として
+\begin{align}
+  \frac{\partial \Delta H}{\partial \alpha} & =
+  2 E I L \left(6 \alpha L^2 + 3 \beta L\right) - P L^3 = 0 \\
+  \frac{\partial \Delta H}{\partial \beta}  & =
+  2 E I L \left(3 \alpha L + 2 \beta\right) - P L^2 = 0
+\end{align}
+を解くと，
+\begin{equation}
+  \alpha = -\frac{P}{6EI}, \beta = \frac{PL}{2EI}
+\end{equation}
+を得る．
+
+\subsection{}
+\subsubsection{}
+$u$は微分方程式
+\begin{equation}
+  \frac{\mathrm{d} u}{\mathrm{d} x} = \frac{P}{GA}
+\end{equation}
+に従う．この一般解は定数$C$を用いて
+\begin{equation}
+  u = \frac{P}{G A} x + C
+\end{equation}
+と表され，境界条件$u(0) = 0$より$C = 0$と決定される．
+$G = E / \left\{2 (1 + \nu)\right\}$より，
+\begin{equation}
+  u = \frac{2 (1 + \nu) P}{E A} x
+\end{equation}
+となる．
+\subsubsection{}
+$x \sim L$のとき，
+\begin{align}
+  u & = \frac{2 (1 + \mu)P}{EA} x  \sim \frac{PL}{EA} =
+  \frac{PL^3}{E} \frac{1}{L^2 A}                                               \\
+  w & = -\frac{P}{6 E I} x^3 + \frac{P L}{2 E I} x^2  \sim \frac{P L^3}{E I} =
+  \frac{P L^3}{E} \frac{1}{I}
+\end{align}
+のように見積もれる．
+$h \ll L$を仮定すると
+\begin{equation}
+  I = \int y^2 \mathrm{d} A < \int h^2 \mathrm{d} A = h^2 A \ll L^2 A
+\end{equation}
+であることから，
+\begin{equation}
+  u \sim \frac{P L^3}{E} \frac{1}{L^2 A} \ll \frac{P L^3}{E} \frac{1}{I} \sim w
+\end{equation}
+がわかる．
+
+\subsection{}
+\subsubsection{}
+回転バネの弾性エネルギーを考慮すると，
+この系におけるトータルの弾性エネルギーは
+\begin{equation}
+  W^{\prime} = \frac{1}{2}\int_V \sigma \varepsilon \mathrm{d} V
+  + \frac{1}{2} k \left(\frac{\mathrm{d} w}{\mathrm{d} x}(0)\right)^2
+\end{equation}
+と表せる．
+外力による仕事$W^{\prime}$は
+回転バネを導入する前の系と同じく
+\begin{equation}
+  W^{\prime} = P w(L)
+\end{equation}
+である．
+したがって，
+\begin{equation}
+  \Delta H^{\prime} = H^{\prime} - W^{\prime} =
+  \frac{1}{2}\int_V \sigma \varepsilon \mathrm{d} V
+  + \frac{1}{2} k \left(\frac{\mathrm{d} w}{\mathrm{d} x}(0)\right)^2
+  - P w(L)
+\end{equation}
+と表せる．
+
+\subsubsection{}
+$w^{\prime} = \alpha^3 x^3 + \beta^2 x^2 + \gamma x$
+と仮定する．$w$は$x$の微分方程式
+\begin{equation}
+  E I \frac{\mathrm{d}^4 w}{\mathrm{d} x^4} = 0
+\end{equation}
+に従うため$x$の3次までの多項式で表せ，
+$x = 0$での境界条件$w(0) = 0$より
+定数項はゼロである．
+回転バネがある場合は，
+$x = 0$での境界条件で回転角$w^{\prime}(0)$が
+一般には0ではないため，$x$の1次の係数をパラメータ表示に加えた．
+
+\subsubsection{}
+このパラメータ設定のもとで$\Delta H^{\prime}$は，
+\begin{equation}
+  \Delta H^{\prime} =
+  2 E I L \left(3 L^{2} \alpha^{2} + 3 L \alpha \beta + \beta^{2}\right) - L P \left(L^{2} \alpha + L \beta + \gamma\right) + \frac{\gamma^{2} k}{2}
+\end{equation}
+と計算できる．$\alpha, \beta, \gamma$による偏微分を$0$として
+\begin{align}
+  \frac{\partial \Delta H}{\partial \alpha} & =
+  L^{2} \left(6 E I \left(2 L \alpha + \beta\right) - L P\right) = 0 \\
+  \frac{\partial \Delta H}{\partial \beta}  & =
+  L \left(2 E I \left(3 L \alpha + 2 \beta\right) - L P\right)= 0    \\
+  \frac{\partial \Delta H}{\partial \gamma} & =
+  -L P + \gamma k = 0
+\end{align}
+を解くと，
+\begin{equation}
+  \alpha = -\frac{P}{6 E I}, \beta = \frac{LP}{2EI},
+  \gamma= \frac{LP}{k}
+\end{equation}
+が得られる．
+
+\end{document}
