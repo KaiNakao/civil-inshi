@@ -119,9 +119,9 @@ $h \ll L$を仮定すると
 \subsection{}
 \subsubsection{}
 回転バネの弾性エネルギーを考慮すると，
-この系におけるトータルの弾性エネルギーは
+この系におけるトータルの弾性エネルギー$H^{\prime}$は
 \begin{equation}
-  W^{\prime} = \frac{1}{2}\int_V \sigma \varepsilon \mathrm{d} V
+  H^{\prime} = \frac{1}{2}\int_V \sigma \varepsilon \mathrm{d} V
   + \frac{1}{2} k \left(\frac{\mathrm{d} w}{\mathrm{d} x}(0)\right)^2
 \end{equation}
 と表せる．
@@ -175,4 +175,109 @@ $x = 0$での境界条件で回転角$w^{\prime}(0)$が
 \end{equation}
 が得られる．
 
+\section{}
+\subsection{}
+1周分の$F_D$による仕事は，
+\begin{equation}
+  \begin{aligned}
+    E_D & =
+    \int_{0 \rightarrow 1} F_D \mathrm{d} x +
+    \int_{2 \rightarrow 0} F_D \mathrm{d} x +
+    \int_{0 \rightarrow 3} F_D \mathrm{d} x +
+    \int_{4 \rightarrow 0} F_D \mathrm{d} x        \\ &=
+    \int_{0}^{x_0} \eta k x \mathrm{d} x +
+    \int_{x_0}^{0} (-\eta k x) \mathrm{d} x +
+    \int_{0}^{-x_0} \eta k x \mathrm{d} x +
+    \int_{-x_0}^{0} (-\eta k x) \mathrm{d} x       \\ &=
+    \int_{0}^{x_0} \eta k x \mathrm{d} x +
+    \int_{0}^{x_0} \eta k x \mathrm{d} x +
+    \int_{-x_0}^{0} (-\eta k x) \mathrm{d} x +
+    \int_{-x_0}^{0} (-\eta k x) \mathrm{d} x       \\ &=
+    \frac{1}{2} \eta k \left(x_0\right)^2 \times 4 \\
+        & = 2 \eta k \left(x_0\right)^2
+  \end{aligned}
+\end{equation}
+
+\subsection{}
+viscous dampingの係数を$c$として変位$x$は
+\begin{equation}
+  m \ddot{x} + c \dot{x} + k x = P_0 \sin (\omega t)
+\end{equation}
+に従う．この定常解は
+\begin{align}
+  x            & = \frac{P_0}{\sqrt{(-m \omega^2 + k)^2 + (c \omega)^2}}
+  \sin (\omega t - \varphi)                                                          \\
+  \sin \varphi & = \frac{-m \omega^2 + k}{\sqrt{(-m \omega^2 + k)^2 + (c \omega)^2}} \\
+  \cos \varphi & = \frac{c \omega}{\sqrt{(-m \omega^2 + k)^2 + (c \omega)^2}}
+\end{align}
+と表され，
+\begin{equation}
+  \dot{x} = \frac{P_0 \omega}{\sqrt{(-m \omega^2 + k)^2 + (c \omega)^2}} \cos (\omega t - \varphi)
+\end{equation}
+が得られる．viscous dampingによる力$c \dot{x}$が
+$t: \varphi/\omega \rightarrow (\varphi + 2 \pi) / \omega$の
+一周期でする仕事は，
+\begin{equation}
+  \begin{aligned}
+    \int c \dot{x} \mathrm{d} x
+     & = \int_{\varphi / \omega}^{(\varphi + 2 \pi) / \omega}
+    c \dot{x} \times \dot{x} \mathrm{d} t                                           \\
+     & =\int_{\varphi / \omega}^{(\varphi + 2 \pi) / \omega}
+    \frac{P_0 \omega c}{(-m \omega^2 + k)^2 + (c \omega)^2}
+    \cos^2 (\omega t - \varphi) \mathrm{d} t                                        \\
+     & = \frac{P_0 \omega c}{(-m \omega^2 + k)^2 + (c \omega)^2} \frac{\pi}{\omega} \\
+     & = \frac{P_0 c \pi}{(-m \omega^2 + k)^2 + (c \omega)^2}
+  \end{aligned}
+\end{equation}
+となる．これが$E_D$と等しくなるような$c$は，
+\begin{equation}
+  \label{eq:eta_to_c}
+  c = \frac{2 \eta k \left(x_0\right)^2
+    \left\{(-m \omega^2 + k)^2 + (c \omega)^2\right\}}{P_0 \pi}
+\end{equation}
+
+\subsection{}
+静的に載荷したときの力のつり合いより，
+\begin{equation}
+  k X_{\mathrm{st}} = P_0
+\end{equation}
+が成り立つ．
+equivalent viscous systemにおいて，
+定常応答のピーク値が$3 X_{\mathrm{st}}$と等しくなる条件は，
+\begin{equation}
+  \frac{P_0}{\sqrt{(m \omega^2 + k)^2 + (c \omega)^2}} = 3 X_{\mathrm{st}}
+\end{equation}
+より，
+\begin{equation}
+  \sqrt{(m \omega^2 + k)^2 + (c \omega)^2} = \frac{k}{3}
+\end{equation}
+となる．これを満たす$c$は，
+\begin{equation}
+  c = \sqrt{-\frac{8k^2}{9 \omega^2} + 2 m k + m^2 \omega^2}
+\end{equation}
+これを式(\ref{eq:eta_to_c})に代入して，
+\begin{equation}
+  \eta = \frac{P_0 \pi}{2 k \left(x_0\right)^2
+    \left\{(-m \omega^2 + k)^2 + (c \omega)^2\right\}}
+  \sqrt{-\frac{8k^2}{9\omega^2} + 2mk + m^2 \omega^2}
+\end{equation}
+が得られる．
+
+\subsection{}
+\subsubsection{}
+hysteretic dampingでは応答の振幅$x_0$が同じであれば，エネルギー散逸が周波数に依存しない．
+viscous dampingでは，応答の振幅が同じ場合でも周波数によってエネルギー散逸が異なる．
+\subsubsection{}
+$P(t) = P_0 \sin (\omega t)$の外力を
+$\omega = 0, \sqrt{k / m}$の2つの振動数で作用させ，
+応答を観測する．
+$w = 0$のときは
+\begin{equation}
+  x = \frac{P_0}{k},
+\end{equation}
+$w = \sqrt{k / m}$のときは
+\begin{equation}
+  x =\frac{P_0}{c}\sqrt{\frac{m}{k}} \sin (\omega t - \phi)
+\end{equation}
+が応答となり，$m, k$を既知として，これら振幅の比から$c$が推定できる．
 \end{document}
