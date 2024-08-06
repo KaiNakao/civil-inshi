@@ -1,0 +1,42 @@
+\documentclass[a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{amsmath}
+\renewcommand{\thesection}{第\arabic{section}問}
+\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{(\alph{subsubsection})}
+\begin{document}
+
+\title{2024 分野1}
+\author{nakao}
+\maketitle
+
+\section{}
+\subsection{}
+\subsubsection{}
+部材の中立軸に直交する平面は，変形後においても
+平面を保ち，中立軸に垂直である．
+\subsubsection{}
+変形後の部材の扇形がなす頂角を$\Delta \theta$として，
+中立軸から高さ$z$離れた部分の変形後の長さを$\Delta s$とすると，
+\begin{equation}
+  \label{eq:delta_s}
+  \Delta s = (R - z) \Delta \theta
+\end{equation}
+が成り立つ．
+中立面では軸ひずみが生じないため
+$\Delta s = dx$となるから
+\begin{equation}
+  \Delta \theta = \frac{dx}{R}
+\end{equation}
+である．これを式(\ref{eq:delta_s})に代入して，
+\begin{equation}
+  \Delta s = \left(1 - \frac{y}{R}\right) dx
+\end{equation}
+が得られる．
+これより，軸ひずみ$\varepsilon$と軸応力$\sigma$は
+\begin{align}
+  \varepsilon & = \frac{\Delta s - dx}{dx} = -\frac{y}{R} \\
+  \sigma      & = -E \varepsilon = - \frac{E y}{R}
+\end{align}
+となる．
+\end{document}
