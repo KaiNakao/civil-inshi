@@ -30,13 +30,267 @@ $\Delta s = dx$となるから
 \end{equation}
 である．これを式(\ref{eq:delta_s})に代入して，
 \begin{equation}
-  \Delta s = \left(1 - \frac{y}{R}\right) dx
+  \Delta s = \left(1 - \frac{z}{R}\right) dx
 \end{equation}
 が得られる．
-これより，軸ひずみ$\varepsilon$と軸応力$\sigma$は
+これより，軸ひずみ$\varepsilon$は
 \begin{align}
-  \varepsilon & = \frac{\Delta s - dx}{dx} = -\frac{y}{R} \\
-  \sigma      & = -E \varepsilon = - \frac{E y}{R}
+  \varepsilon & = \frac{\Delta s - dx}{dx} = -\frac{z}{R} \\
 \end{align}
 となる．
+
+\subsubsection{}
+ヤング率を$E$とすると，軸応力$\sigma$は
+\begin{equation}
+  \sigma = E \varepsilon
+  = -\frac{Ez}{R}
+\end{equation}
+となる．
+
+\subsection{}
+断面上の微小面積$\mathrm{d}A$に作用する軸力によるモーメントを断面全体で積分すると，
+\begin{equation}
+  \label{eq:moment}
+  \begin{aligned}
+    M & = \int_A (-z) \sigma \mathrm{d}A                       \\
+      & = \int_A (-z) \left(–\frac{E z}{R}\right) \mathrm{d} A \\
+      & = \frac{E}{R} \int_A z^2 \mathrm{d} A
+    = \frac{E I}{R}
+  \end{aligned}
+\end{equation}
+となる．
+
+\subsection{}
+\subsubsection{}
+せん断応力が作用する面積は，
+$2\left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right) dx$であり，
+$x$軸方向の力のつり合いを考えると，
+\begin{equation}
+  \int_{\hat{A}} \left(\sigma +
+  \frac{\mathrm{d} \sigma}{\mathrm{d} x} d x\right) \mathrm{d}A
+  - \int_{\hat{A}} \sigma \mathrm{d} A
+  - \tau \times 2\left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right) dx = 0
+\end{equation}
+が成り立つ．これより，
+\begin{equation}
+  \tau = \frac{1}{2\left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right)}
+  \int_{\hat{A}}
+  \frac{\mathrm{d} \sigma}{\mathrm{d} x} \mathrm{d}A
+\end{equation}
+が得られる．
+
+\subsubsection{}
+式(\ref{eq:moment})を$x$で微分して，
+\begin{equation}
+  \frac{\mathrm{d} M}{\mathrm{d} x} =
+  EI \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right]
+\end{equation}
+が得られる．ここで，
+\begin{equation}
+  \begin{aligned}
+    \int_{\hat{A}} \frac{\mathrm{d} \sigma}{\mathrm{d} x} \mathrm{d} A
+     & = \int_{\hat{A}} \frac{\mathrm{d}}{\mathrm{d} x}
+    \left[-\frac{E z}{R}\right] \mathrm{d} A                   \\
+     & = \int_{\hat{A}} (-E z) \frac{\mathrm{d}}{\mathrm{d} x}
+    \left[\frac{1}{R}\right] \mathrm{d} A                      \\
+     & = -E \frac{\mathrm{d}}{\mathrm{d} x}
+    \left[\frac{1}{R}\right] \int_{\hat{A}} z \mathrm{d} A     \\
+     & = - E \frac{1}{EI} \frac{\mathrm{d} M}{\mathrm{d} x} J  \\
+     & = -\frac{J}{I} \frac{\mathrm{d} M}{\mathrm{d} x}
+  \end{aligned}
+\end{equation}
+である．したがって，
+\begin{equation}
+  \tau = \frac{1}{2\left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right)}
+  \int_{\hat{A}}
+  \frac{\mathrm{d} \sigma}{\mathrm{d} x} \mathrm{d}A =
+  -\frac{J}{2 I\left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right)}
+  \frac{\mathrm{d} M}{\mathrm{d} x}
+\end{equation}
+となる．
+
+\subsubsection{}
+\begin{equation}
+  \label{eq:first_moment}
+  \begin{aligned}
+    J & = \int_{\hat{A}} z \mathrm{d} A                        \\
+      & = 2\left(
+    \int_{-r_2}^{-r_1} \int_{0}^{\sqrt{r_2^2 - z^2}}
+    z \mathrm{d} y \mathrm{d} z +
+    \int_{-r_1}^{-z} \int_{\sqrt{r_1^2 - z^2}}^{\sqrt{r_2^2 - z^2}}
+    z \mathrm{d} y \mathrm{d} z \right)                        \\
+      & = 2 \left(
+    \int_{-r_2}^{-r_1} z \sqrt{r_2^2 - z^2} \mathrm{d} z +
+    \int_{-r_1}^{-z} z \left(\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2}\right)
+    \mathrm{d} y \mathrm{d} z \right)                          \\
+      & = 2 \left(
+    \int_{-r_2}^{-z} z \sqrt{r_2^2 - z^2} \mathrm{d} z -
+    \int_{-r_1}^{-z} z \sqrt{r_1^2 - z^2} \mathrm{d} z \right) \\
+      & = -\frac{2}{3}
+    \left\{(r_2^2 - z^2)^{\frac{3}{2}} -
+    (r_1^2 - z^2)^{\frac{3}{2}}\right\}
+  \end{aligned}
+\end{equation}
+であるから，
+\begin{equation}
+  \begin{aligned}
+    \tau & = -\frac{J}{2 I (\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2})}
+    \frac{\mathrm{d} M}{\mathrm{d} x}                                             \\
+         & = \frac{(r_2^2 - z^2)^{\frac{3}{2}} - (r_1^2 - z^2)^{\frac{3}{2}}}
+    {3 I (\sqrt{r_2^2 - z^2} - \sqrt{r_1^2 - z^2})}
+    \frac{\mathrm{d} M}{\mathrm{d} x}                                             \\
+         & = \frac{(r_2^2 - z^2) + \sqrt{r_2^2 - z^2} \sqrt{r_1^2 - z_2} +
+      (r_1^2 - z^2)}
+    {3I} \frac{\mathrm{d} M}{\mathrm{d} x}                                        \\
+         & = \frac{r_1^2 + r_2^2 - 2 z^2 + \sqrt{(r_2^2 - z^2)(r_1^2 - z^2)}}{3I}
+    \frac{\mathrm{d} M}{\mathrm{d} x}
+  \end{aligned}
+\end{equation}
+と表せる．
+これを$z$で微分すると
+\begin{equation}
+  \frac{\mathrm{d} \tau}{\mathrm{d} z} =
+  -\frac{z}{3I} \frac{\mathrm{d} M}{\mathrm{d} x}
+  \left(4 + \frac{r_1^2 + r_2^2 - 2z^2}{\sqrt{(r_2^2 - z^2)(r_1^2 - z^2)}}\right)
+\end{equation}
+となり，$-r_1 \leq z \leq r_1$の範囲では，$z = 0$で$\tau$が最大になる．
+よって最大の$\tau$は
+\begin{equation}
+  \tau = \frac{r_1^2 + r_2^2 + r_1 r_2}{3 I}\frac{\mathrm{d}M}{\mathrm{d}x}
+\end{equation}
+となる．さらに，
+\begin{equation}
+  \begin{aligned}
+    I & = \int_A z^2 \mathrm{d}A                       \\
+      & = \int_0^{2\pi} \int_{r_1}^{r_2}
+    (r \sin \theta)^2 r \mathrm{d} r \mathrm{d} \theta \\
+      & = \int_{r_1}^{r_2} r^3 \mathrm{d} r
+    \int_0^{2 \pi} \sin^2 \theta \mathrm{d} \theta     \\
+      & = \frac{\pi(r_2^4 - r_1^4)}{4}
+  \end{aligned}
+\end{equation}
+であるから，最大の$\tau$は
+\begin{equation}
+  \tau = \frac{4(r_1^2 + r_2^2 + r_1 r_2)}{3 \pi (r_2^4 - r_1^4)}
+  \frac{\mathrm{d} M}{\mathrm{d} x}
+\end{equation}
+と表せる．
+
+\subsection{}
+\subsubsection{}
+内側と外側の筒の断面二次モーメントをそれぞれ
+$I_1, I_2$とすると，
+\begin{align}
+  I_1 & = \int_0^{2\pi} \int_{r_1}^{r_2} z^2 r \mathrm{d} r \mathrm{d} \theta
+  = \frac{\pi (r_2^4 - r_1^4)}{4}                                             \\
+  I_2 & = \int_0^{2\pi} \int_{r_2}^{r_3} z^2 r \mathrm{d} r \mathrm{d} \theta
+  = \frac{\pi (r_3^4 - r_2^4)}{4}
+\end{align}
+曲率半径が$R$のときに
+内側と外側のはりに生じる曲げモーメントをそれぞれ
+$M_1, M_2$とすると，
+\begin{align}
+  M_1 & = \frac{E I_1}{R} = \frac{\pi E (r_2^4 - r_1^4)}{4 R} \\
+  M_2 & = \frac{E I_1}{R} = \frac{\pi E (r_3^4 - r_2^4)}{4 R}
+\end{align}
+したがって，内側の外側のはりに生じるモーメントの割合はそれぞれ，
+\begin{align}
+  \frac{M_1}{M_1 + M_2} & = \frac{r_2^4 - r_1^4}{r_3^4 - r_1^4} \\
+  \frac{M_2}{M_1 + M_2} & = \frac{r_3^4 - r_2^4}{r_3^4 - r_1^4} \\
+\end{align}
+である．
+
+\subsubsection{}
+No.
+固着される前の状態で，
+トータルの曲げモーメントが$M$であるとき，
+\begin{equation}
+  M = M_1 + M_2 = \frac{\pi E (r_3^4 - r_1^4)}{4 R}
+\end{equation}
+より，
+\begin{equation}
+  \label{eq:r_before}
+  R = \frac{\pi E (r_3^4 - r_1^4)}{4 M}
+\end{equation}
+である．
+固着された後の状態の断面二次モーメントを$I_3$とすると，
+\begin{equation}
+  I_3 = \int_0^{2\pi} \int_{r_1}^{r_3} z^2 r \mathrm{d} r \mathrm{d} \theta
+  = \frac{\pi (r_3^4 - r_1^4)}{4}                                             \\
+\end{equation}
+であり，曲率半径が$R^{\prime}$のときに生じる曲げモーメントは
+\begin{equation}
+  \frac{EI_3}{R^{\prime}} = \frac{\pi E (r_3^4 - r_1^4)}{4 R^{\prime}}
+\end{equation}
+となる．曲げモーメントが$M$のときに対応する$R^{\prime}$は，
+\begin{equation}
+  \label{eq:r_after}
+  R^{\prime} = \frac{\pi E (r_3^4 - r_1^4)}{4 M}
+\end{equation}
+となる．
+式(\ref{eq:r_before}), (\ref{eq:r_after})
+の比較より，同一の曲げモーメント$M$のもとでの曲率半径は固着する前後で等しい．
+
+\subsection{}
+No.
+内径が$r_{\mathrm{in}}$，外径が$r_{\mathrm{out}}$の筒
+の微小な長さ$\Delta x$の部分を考える．
+$-r_{\mathrm{in}} \leq z \leq r_{\mathrm{in}}$において，
+このに生じるせん断力を$V$として，力のつり合い
+\begin{equation}
+  \int_{\hat{A}} \left(
+  \sigma + \frac{\mathrm{d} \sigma}{\mathrm{d} x} \Delta x
+  \right) \mathrm{d} A -
+  \int_{\hat{A}} \sigma \mathrm{d} A
+  - V = 0
+\end{equation}
+より，
+\begin{equation}
+  V  = \int_{\hat{A}} \frac{\mathrm{d} \sigma}{\mathrm{d} x}
+  \Delta x \mathrm{d} A
+  = -E \Delta x \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] \int_{\hat{A}} z \mathrm{d} A
+\end{equation}
+が得られる．式(\ref{eq:first_moment})と同様に計算すると，
+\begin{equation}
+  V = \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right]
+  \left\{(r_{\mathrm{out}}^2 - z^2)^{\frac{3}{2}}
+  - (r_{\mathrm{in}}^2 - z^2)^{\frac{3}{2}}\right\}
+\end{equation}
+となる．
+\begin{equation}
+  \frac{\mathrm{d} V}{\mathrm{d} x} =
+  -2 E \Delta x \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right]
+  \frac{z (r_{\mathrm{out}}^2 - r_{\mathrm{in}}^2)}
+  {\sqrt{r_{\mathrm{out}}^2 - z^2} + \sqrt{r_{\mathrm{in}}^2 - z^2}}
+\end{equation}
+より，$V$は$r_{\mathrm{in}}, r_{\mathrm{out}}$の値によらず
+$z = 0$で最大値をとり，その値は，
+\begin{equation}
+  V = \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] (r_{\mathrm{out}}^2 - r_{\mathrm{in}}^2)
+\end{equation}
+となる．\par
+同一の変形，すなわち同一の$R$のもとで，
+はりが固着する前の最大のせん断力は，
+\begin{equation}
+  \label{eq:shear_before}
+  \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] (r_{2}^2 - r_{1}^2) +
+  \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] (r_{3}^2 - r_{2}^2) =
+  \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] (r_{3}^2 - r_{1}^2)
+\end{equation}
+はりを固着した後の最大のせん断力は，
+\begin{equation}
+  \label{eq:shear_after}
+  \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
+  \left[\frac{1}{R}\right] (r_{3}^2 - r_{1}^2)
+\end{equation}
+式(\ref{eq:shear_before}),(\ref{eq:shear_after})の比較より，
+固着する前後ではりに生じるせん断力の最大値は等しい．
 \end{document}
