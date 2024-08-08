@@ -293,4 +293,176 @@ $z = 0$で最大値をとり，その値は，
 \end{equation}
 式(\ref{eq:shear_before}),(\ref{eq:shear_after})の比較より，
 固着する前後ではりに生じるせん断力の最大値は等しい．
+
+\section{}
+\subsection{}
+\subsubsection{}
+\begin{equation}
+  w = a_1(t) \sin \frac{\pi x}{L}
+\end{equation}
+のとき，
+\begin{align}
+  \dot{w}          & = \dot{a}_1(t) \sin \frac{\pi x}{L}              \\
+  w^{\prime\prime} & = -\frac{\pi^2}{L^2} a_1(t) \sin \frac{\pi x}{L}
+\end{align}
+が成り立つ．これを用いて，
+\begin{equation}
+  \begin{aligned}
+    T & = \frac{1}{2} \int_0^L m \dot{w}^2 \mathrm{d} x \\
+      & = \frac{1}{2} m \left(\dot{a}_1 (t)\right)^2
+    \int_0^L \sin^2 \frac{\pi x}{L} \mathrm{d} x        \\
+      & = \frac{m L}{4} \left(\dot{a}_1 (t)\right)^2
+  \end{aligned}
+\end{equation}
+および，
+\begin{equation}
+  \begin{aligned}
+    V & = \frac{1}{2} \int_0^L
+    E I \left(-\frac{\pi^2}{L^2} a_1(t) \sin \frac{\pi x}{L}\right)^2
+    \sin^2 \frac{\pi x}{L} \mathrm{d} x
+    - m g \int_0^L a_1(t) \sin \frac{\pi x}{L} \mathrm{d} x \\
+      & = \frac{E I \pi^4}{2 L^4}
+    \left(a_1(t)\right)^2 \int_0^L \sin^2 \frac{\pi x}{L} \mathrm{d} x
+    - m g a_1(t) \int_0^L \sin \frac{\pi x}{L} \mathrm{d} x \\
+      & = \frac{E I \pi^4}{4 L^3} \left(a_1(t)\right)^2
+    - \frac{2 m g L}{\pi} a_1(t)
+  \end{aligned}
+\end{equation}
+が得られる．
+$a_1(t)$に摂動$\delta a_1(t)$を加えると，
+\begin{equation}
+  Q_1 \delta a_1(t) =
+  \int_0^L f(x, t) \delta a_1(t) \sin \frac{\pi x}{L} \mathrm{d} x
+\end{equation}
+が成り立つ．右辺を計算すると，
+\begin{equation}
+  \begin{aligned}
+    \int_0^L f(x, t) \delta a_1(t) \sin \frac{\pi x}{L} \mathrm{d} x
+     & = \int M g \delta (x - vt) \delta a_1(t) \sin \frac{\pi x}{L} \mathrm{d} x \\
+     & = M g \delta a_1(t) \sin \frac{\pi v t}{L}
+  \end{aligned}
+\end{equation}
+であるから，
+\begin{equation}
+  Q_1 = M g \sin \frac{\pi v t}{L}
+\end{equation}
+である．
+\subsubsection{}
+\begin{align}
+  \frac{\mathrm{d}}{\mathrm{d} t}
+  \left(\frac{\partial T}{\partial \dot{a}}\right) & =
+  \frac{\mathrm{d}}{\mathrm{d} t}
+  \left(\frac{m L}{2} \dot(a)(t)\right) =
+  \frac{1}{2} m L \ddot{a}(t)                            \\
+  \frac{\partial T}{\partial a_1}                  & = 0 \\
+  \frac{\partial V}{\partial a_1}                  & =
+  \frac{E I \pi^4}{2 L^3} a_1(t) - \frac{2 m g L}{\pi}
+\end{align}
+より，運動方程式は，
+\begin{equation}
+  \frac{1}{2} m L \ddot{a}_1 (t)
+  + \frac{E I \pi^4}{2 L^3} a_1(t)
+  - \frac{2 m g L}{\pi}
+  - M g \sin \frac{\pi v t}{L} = 0
+\end{equation}
+となる．
+
+\subsubsection{}
+この系の固有振動数$\omega_0$は，
+\begin{equation}
+  \omega_0 = \sqrt{\frac{E I \pi^4}{2 L^3} \frac{m L}{2}} =
+  \frac{\pi^2}{L^2} \sqrt{\frac{E I}{m}}
+\end{equation}
+である．系の固有周期が載荷の周期と一致するための条件は，
+\begin{equation}
+  \frac{l}{v} =  \frac{2 \pi}{\omega_0}
+\end{equation}
+すなわち，
+\begin{equation}
+  v = \frac{\pi l}{2 L^2} \sqrt{\frac{E I}{m}}
+\end{equation}
+と表せる．
+
+\subsection{}
+\subsubsection{}
+$w(x, y) = 0$のときの高さを
+$y = 0$として，鉛直上向きに$y$軸をとる．
+質点の位置$\boldsymbol{r}(t)$は，
+\begin{equation}
+  \boldsymbol{r}(t) =
+  \begin{pmatrix}
+    vt \\ -w(vt ,t)
+  \end{pmatrix} =
+  \begin{pmatrix}
+    vt \\ -a_1(t) \sin \frac{\pi v t}{L}
+  \end{pmatrix}
+\end{equation}
+であるから，質点の速度は，
+\begin{equation}
+  \dot{\boldsymbol{r}}(t) =
+  \begin{pmatrix}
+    v \\ -\frac{\pi v}{L} \cos \frac{\pi v t}{L}
+  \end{pmatrix}
+\end{equation}
+と表せる．
+質点の運動エネルギーと位置エネルギーを考慮すると，
+\begin{equation}
+  \begin{aligned}
+    T & = \frac{1}{2} \int_0^L m \dot{w}^2 \mathrm{d} x
+    + \frac{1}{2} M \left\| \dot{r} \right\|^2          \\
+      & = \frac{mL}{4} \left(\dot{a}_1(t)\right)^2
+    + \frac{M v^2}{2}
+    + \frac{M \pi^2 v^2}{2 L^2}
+    \left(a_1(t)\right)^2 \cos^2 \frac{\pi v t}{L}
+  \end{aligned}
+\end{equation}
+また，
+\begin{equation}
+  \begin{aligned}
+    V & = \frac{1}{2} \int_0^L E I w^{\prime\prime} \mathrm{d} x
+    - m g \int_0^L w \mathrm{d} x
+    + M g \left(-a_1(t) \sin \frac{\pi v t}{L}\right)            \\
+      & = \frac{E I \pi^4}{4 L^3} \left(a_1(t)\right)^2
+    - \frac{2 m g L}{\pi} a_1(t)
+    - M g a_1(t) \sin \frac{\pi v t} {L}
+  \end{aligned}
+\end{equation}
+が得られる．
+
+\subsubsection{}
+\begin{align}
+  \frac{\mathrm{d}}{\mathrm{d} t}
+  \left(\frac{\partial T}{\partial \dot{a}}\right)
+   & = \frac{\mathrm{d}}{\mathrm{d} t}
+  \left(\frac{m L}{2} \dot(a)(t)\right)
+  = \frac{1}{2} m L \ddot{a}(t)        \\
+  \frac{\partial T}{\partial a_1}
+   & = \frac{M \pi^2 v^2}{L^2} a_1(t)
+  \cos^2 \frac{\pi v t}{L}             \\
+  \frac{\partial V}{\partial a_1}
+   & = \frac{E I \pi^4}{2 L^3} a_1(t)
+  - \frac{2 m g L}{\pi}
+\end{align}
+より，運動方程式は，
+\begin{equation}
+  \frac{1}{2} m L \ddot{a}_1 (t)
+  - \frac{M \pi^2 v^2}{L^2} a_1(t) \cos^2 \frac{\pi v t}{L}
+  + \frac{E I \pi^4}{2 L^3} a_1(t)
+  - \frac{2 m g L}{\pi}
+  - M g \sin \frac{\pi v t}{L} = 0
+\end{equation}
+となる．
+
+\subsubsection{}
+(1)(b)と(2)(b)の運動方程式の違いは，
+\begin{equation}
+  \frac{M \pi^2 v^2}{L^2} a_1(t) \cos^2 \frac{\pi v t}{L}
+\end{equation}
+の項の有無である．
+この影響で，周期的に剛性の低下が生じる．
+\begin{equation}
+  \cos^2 \frac{\pi v t}{L} =
+  \frac{1}{2} \left(1 - \cos \frac{2 \pi v t}{L}\right)
+\end{equation}
+より，車の通過によって駆動される振動数の2倍の振動数をもつ高周波応答が生じる．
 \end{document}
