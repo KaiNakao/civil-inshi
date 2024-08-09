@@ -19,10 +19,10 @@
 \end{equation}
 と表せる。単純支持条件では梁の両端で鉛直方向の変位と曲げモーメントが0になるから、境界条件は
 \begin{align}
-  w(0) &= 0 \\
-  w(L) &= 0 \\
-  w^{\prime \prime}(0) &= 0 \\
-  w^{\prime \prime}(L) &= 0
+  w(0)                 & = 0 \\
+  w(L)                 & = 0 \\
+  w^{\prime \prime}(0) & = 0 \\
+  w^{\prime \prime}(L) & = 0
 \end{align}
 である。
 
@@ -37,8 +37,8 @@
 \end{equation}
 が成り立つ。式(7)を式(6)に代入して、
 \begin{equation}
-  E \left(I(x) w^{\prime \prime \prime \prime}(x) + 
-  2 I^{\prime}(x) w^{\prime \prime \prime}(x) + 
+  E \left(I(x) w^{\prime \prime \prime \prime}(x) +
+  2 I^{\prime}(x) w^{\prime \prime \prime}(x) +
   I^{\prime \prime}(x) w^{\prime \prime}(x)\right)
   = p
 \end{equation}
@@ -50,20 +50,29 @@
 
 \subsection{}
 変化する。
-オイラーの座屈荷重$P_c$は、
+オイラーの座屈荷重は，
+梁に軸力$-P$を加えたときの変位$w$の分布から導出される．
+この$w$が従う微分方程式は
 \begin{equation}
-  P_c = E I \frac{\pi^2}{l^2}
+  E I(x) w^{\prime \prime} + P w = 0
 \end{equation}
-と表され、断面2次モーメントの分布に依存する。
+であり，これより
+同じ軸力によって梁に生じる変位が$I(x)$に依存するため，
+座屈を起こす軸力も$I(x)$に依存する．
+% オイラーの座屈荷重$P_c$は、
+% \begin{equation}
+%   P_c = E I \frac{\pi^2}{l^2}
+% \end{equation}
+% と表され、断面2次モーメントの分布に依存する。
 
 \section{}
 \subsection{}
 $t < 0$のとき、
 \begin{equation}
   \begin{aligned}
-    m \ddot{x}_1 &= 0 \\
-    m \ddot{x}_2 + k (x_2 - x_3) &= 0 \\
-    m \ddot{x}_3 + k (x_3 - x_2) &= 0
+    m \ddot{x}_1                 & = 0 \\
+    m \ddot{x}_2 + k (x_2 - x_3) & = 0 \\
+    m \ddot{x}_3 + k (x_3 - x_2) & = 0
   \end{aligned}
 \end{equation}
 より、
@@ -74,8 +83,8 @@ $t < 0$のとき、
     0 & 0 & m
   \end{pmatrix} +
   \begin{pmatrix}
-    0 & 0 & 0 \\
-    0 & k & -k \\
+    0 & 0  & 0  \\
+    0 & k  & -k \\
     0 & -k & k
   \end{pmatrix} = \boldsymbol{0}
 \end{equation}
@@ -83,9 +92,9 @@ $t < 0$のとき、
 $t \geq 0$のとき、
 \begin{equation}
   \begin{aligned}
-    m \ddot{x}_1 + k (x_1 - x_2) &= 0 \\
-    m \ddot{x}_2 + k (x_2 - x_1) + k (x_2 - x_3) &= 0 \\
-    m \ddot{x}_3 + k (x_3 - x_2) &= 0
+    m \ddot{x}_1 + k (x_1 - x_2)                 & = 0 \\
+    m \ddot{x}_2 + k (x_2 - x_1) + k (x_2 - x_3) & = 0 \\
+    m \ddot{x}_3 + k (x_3 - x_2)                 & = 0
   \end{aligned}
 \end{equation}
 より、
@@ -96,9 +105,9 @@ $t \geq 0$のとき、
     0 & 0 & m
   \end{pmatrix} +
   \begin{pmatrix}
-    k & -k & 0 \\
+    k  & -k & 0  \\
     -k & 2k & -k \\
-    0 & -k & k
+    0  & -k & k
   \end{pmatrix} = \boldsymbol{0}
 \end{equation}
 が成り立つ。
@@ -106,7 +115,7 @@ $t \geq 0$のとき、
 \subsection{}
 行列M, Kを
 \begin{equation}
-  M = 
+  M =
   \begin{pmatrix}
     m & 0 & 0 \\
     0 & m & 0 \\
@@ -114,9 +123,9 @@ $t \geq 0$のとき、
   \end{pmatrix}, \quad
   K =
   \begin{pmatrix}
-    k & -k & 0 \\
+    k  & -k & 0  \\
     -k & 2k & -k \\
-    0 & -k & k
+    0  & -k & k
   \end{pmatrix}
 \end{equation}
 とする。このとき、
@@ -191,15 +200,15 @@ $(K -\omega^2 M) \boldsymbol{\phi} = \boldsymbol{0}$
 \subsection{}
 2つの異なる固有モード形$\boldsymbol{\phi}_i, \boldsymbol{\phi}_j$に対して、
 \begin{align}
-  \boldsymbol{\phi}_i M \boldsymbol{\phi}_j &= 0 \\
-  \boldsymbol{\phi}_i K \boldsymbol{\phi}_j &= 0
+  \boldsymbol{\phi}_i M \boldsymbol{\phi}_j & = 0 \\
+  \boldsymbol{\phi}_i K \boldsymbol{\phi}_j & = 0
 \end{align}
 が成り立つことを多自由度系モードの直交性という。
 これを利用することで、複数の変数で連立された運動方程式が独立な微分方程式に分解できる。\par
 $1 \leq i, j \leq 3, i \neq j$なる任意の$(i, j)$に対して、式(15)より、
 \begin{align}
-  \boldsymbol{\phi}_j^T (K - \omega_i^2 M) \boldsymbol{\phi}_i &= 0 \\
-  \boldsymbol{\phi}_i^T (K - \omega_j^2 M) \boldsymbol{\phi}_j &= 0
+  \boldsymbol{\phi}_j^T (K - \omega_i^2 M) \boldsymbol{\phi}_i & = 0 \\
+  \boldsymbol{\phi}_i^T (K - \omega_j^2 M) \boldsymbol{\phi}_j & = 0
 \end{align}
 が成立している。ここで、スカラーの値は転置しても同じであるから、
 \begin{align}
@@ -241,9 +250,9 @@ $\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i, \boldsymbol{\phi}_i^T K \boldsymbo
 の値をそれぞれ計算すると、
 \begin{equation}
   \begin{cases}
-    3 m \ddot{q}_1 &= 0 \\
-    2 m \ddot{q}_2 + 2 k q_2 &= 0 \\
-    6 m \ddot{q}_3 + 18 k q_3 &= 0
+    3 m \ddot{q}_1            & = 0 \\
+    2 m \ddot{q}_2 + 2 k q_2  & = 0 \\
+    6 m \ddot{q}_3 + 18 k q_3 & = 0
   \end{cases}
 \end{equation}
 となる。\par
@@ -272,15 +281,15 @@ $\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i, \boldsymbol{\phi}_i^T K \boldsymbo
 をとなる。式(33),(36),(37)を解くと、
 \begin{equation}
   \begin{cases}
-    q_1 &= \frac{v}{3} t \\
-    q_2 &= \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t \\
-    q_3 &= \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
+    q_1 & = \frac{v}{3} t                                              \\
+    q_2 & = \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t   \\
+    q_3 & = \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
   \end{cases}
 \end{equation}
 を得る。したがって、求める応答は、
 \begin{equation}
   \begin{aligned}
-    \boldsymbol{x} &= \frac{v}{3} t
+    \boldsymbol{x} & = \frac{v}{3} t
     \begin{pmatrix}
       1 \\ 1 \\ 1
     \end{pmatrix} +
@@ -291,8 +300,8 @@ $\boldsymbol{\phi}_i^T M \boldsymbol{\phi}_i, \boldsymbol{\phi}_i^T K \boldsymbo
     \frac{v}{6} \sqrt{\frac{m}{3k}} \sin \sqrt{\frac{3k}{m}} t
     \begin{pmatrix}
       1 \\ -2 \\ 1
-    \end{pmatrix} \\
-    &=
+    \end{pmatrix}                   \\
+                   & =
     \begin{pmatrix}
       \frac{v}{3} t +
       \frac{v}{2} \sqrt{\frac{m}{k}} \sin \sqrt{\frac{k}{m}} t +
