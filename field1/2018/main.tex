@@ -22,10 +22,10 @@ $x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるた
 \subsection{}
 梁の両端で変位と曲げモーメントが0になるから、
 \begin{align}
-  w(0) &= 0 \\
-  w(L) &= 0 \\
-  w^{\prime \prime}(0) &= 0 \\
-  w^{\prime \prime}(L) &= 0
+  w(0)                 & = 0 \\
+  w(L)                 & = 0 \\
+  w^{\prime \prime}(0) & = 0 \\
+  w^{\prime \prime}(L) & = 0
 \end{align}
 を満たせばよい。
 
@@ -33,10 +33,10 @@ $x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるた
 \subsubsection{}
 梁の両端で変位とたわみ角が0になるから、
 \begin{align}
-  w(0) &= 0 \\
-  w(L) &= 0 \\
-  w^{\prime}(0) &= 0 \\
-  w^{\prime}(L) &= 0
+  w(0)          & = 0 \\
+  w(L)          & = 0 \\
+  w^{\prime}(0) & = 0 \\
+  w^{\prime}(L) & = 0
 \end{align}
 を満たせばよい。
 
@@ -54,7 +54,20 @@ $x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるた
 固定支持の場合と単純支持の場合の変位の差に相当している。
 
 \subsection{}
-大きくなる。式(1)にみるように、変位は断面二次モーメントに反比例しているから。
+大きくなる。
+% 式(1)にみるように、変位は断面二次モーメントに反比例しているから。
+曲げモーメント$M$の分布は
+\begin{equation}
+  M^{\prime \prime} + p = 0
+\end{equation}
+によって定まり，これは断面二次モーメント$I$の分布によらない．
+\begin{equation}
+  M = -E I w^{\prime \prime}
+\end{equation}
+より，$M$が一定の条件で$I$が小さくなると
+$-w^{\prime \prime}$が大きくなる．
+$x = L/2$では$-w^{\prime \prime}$が大きくなることで
+変位が大きくなると考えられる．
 
 \section{}
 \subsection{}
@@ -64,6 +77,7 @@ $x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるた
 \end{equation}
 したがって、
 \begin{equation}
+  \label{eq:equation_of_motion}
   m \ddot{y} = -k\left(y(t) - u_g(vt)\right)
 \end{equation}
 が成り立つ。
@@ -95,55 +109,59 @@ $x = L/2$の集中荷重$P$は分布荷重$P \delta (x - L/2)$とみなせるた
 \subsection{}
 $x = vt$より、
 \begin{equation}
-  u_g(vt) = 
+  u_g(vt) =
   \begin{cases}
-    0 & (t < 0) \\
+    0              & (t < 0)                            \\
     -\sin \omega t & (0 \leq t \leq \frac{\pi}{\omega}) \\
-    0 & (\frac{\pi}{\omega} < t)
+    0              & (\frac{\pi}{\omega} < t)
   \end{cases}
 \end{equation}
 である。\par
 $0 \leq t \leq \frac{\pi}{\omega}$のとき、
-$y = C t \cos \omega t$を式(11)に代入すると$C = \omega / 2$を得る。
+$y = C t \cos \omega t$を式(\ref{eq:equation_of_motion})に
+代入すると$C = \omega / 2$を得る。
 よって、
 \begin{equation}
   y = \frac{1}{2} \omega t \cos \omega t
 \end{equation}
-は式(11)の特解である。
+は式(\ref{eq:equation_of_motion})の特解である。
 したがって、一般解は定数$B_1, B_2$を用いて
 \begin{equation}
   y = \frac{1}{2} \omega t \cos \omega t + B_1 \cos \omega t + B_2 \sin \omega t
 \end{equation}
 と表せる。
-初期条件$y(0) = y_0, \dot{y}(0) = \dot{y}_0$を満たすように$B_1,B_2$を定め、
+初期条件$y(0) = 0, \dot{y}(0) = 0$を満たすように$B_1,B_2$を定め、
 \begin{equation}
-  y = \frac{1}{2} \omega t \cos \omega t + y_0 \cos \omega t 
-  + \left(\frac{\dot{y}_0}{\omega} - \frac{1}{2}\right) \sin \omega t
+  \label{eq:solution_1}
+  y = \frac{1}{2} \omega t \cos \omega t - \frac{1}{2} \sin \omega t
 \end{equation}
 を得る。ここで、$t = \pi / \omega$とすると、
 \begin{align}
-  y\left(\frac{\pi}{\omega}\right) &= -\frac{\pi}{2} - y_0 \\
-  \dot{y}\left(\frac{\pi}{\omega}\right) &= -\dot{y}_0
+  \label{eq:init_pi/omega_y}
+  y\left(\frac{\pi}{\omega}\right)       & = -\frac{\pi}{2} \\
+  \label{eq:init_pi/omega_ydot}
+  \dot{y}\left(\frac{\pi}{\omega}\right) & = 0
 \end{align}
 である。\par
 $\frac{\pi}{\omega} < t$のとき、$u_g(vt) = 0$より、一般解は定数$C_1, C_2$を用いて
 \begin{equation}
   y = C_1 \cos \omega t + C_2 \sin \omega t
 \end{equation}
-と表せる。式(20),(21)の初期条件を満たすように$C_1,C_2$を定めると、
+と表せる。式(\ref{eq:init_pi/omega_y}), (\ref{eq:init_pi/omega_ydot})
+の初期条件を満たすように$C_1,C_2$を定めると、
 \begin{equation}
-  y = \left(\frac{\pi}{2} + y_0\right) \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
+  \label{eq:solution_2}
+  y = \frac{\pi}{2} \cos \omega t
 \end{equation}
 を得る。
-式(19),(23)より、
+式(\ref{eq:solution_1}), (\ref{eq:solution_2})より、
 \begin{equation}
-  y = 
+  y =
   \begin{cases}
-    y = \frac{1}{2} \omega t \cos \omega t + y_0 \cos \omega t 
-    + \left(\frac{\dot{y}_0}{\omega} - \frac{1}{2}\right) \sin \omega t
-    & \left(0 \leq t \leq \frac{\pi}{\omega}\right) \\
-    y = \left(\frac{\pi}{2} + y_0\right) \cos \omega t + \frac{\dot{y}_0}{\omega} \sin \omega t
-    & \left(\frac{\pi}{\omega} < t\right)
+    y = \frac{1}{2} \omega t \cos \omega t - \frac{1}{2}\sin \omega t
+     & \left(0 \leq t \leq \frac{\pi}{\omega}\right) \\
+    y = \frac{\pi}{2} \cos \omega t
+     & \left(\frac{\pi}{\omega} < t\right)
   \end{cases}
 \end{equation}
 である。
