@@ -261,7 +261,7 @@ $-r_{\mathrm{in}} \leq z \leq r_{\mathrm{in}}$において，
 \end{equation}
 となる．
 \begin{equation}
-  \frac{\mathrm{d} V}{\mathrm{d} x} =
+  \frac{\partial V}{\partial z} =
   -2 E \Delta x \frac{\mathrm{d}}{\mathrm{d} x}
   \left[\frac{1}{R}\right]
   \frac{z (r_{\mathrm{out}}^2 - r_{\mathrm{in}}^2)}
@@ -271,7 +271,7 @@ $-r_{\mathrm{in}} \leq z \leq r_{\mathrm{in}}$において，
 $z = 0$で最大値をとり，その値は，
 \begin{equation}
   V = \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
-  \left[\frac{1}{R}\right] (r_{\mathrm{out}}^2 - r_{\mathrm{in}}^2)
+  \left[\frac{1}{R}\right] (r_{\mathrm{out}}^3 - r_{\mathrm{in}}^3)
 \end{equation}
 となる．\par
 同一の変形，すなわち同一の$R$のもとで，
@@ -279,17 +279,17 @@ $z = 0$で最大値をとり，その値は，
 \begin{equation}
   \label{eq:shear_before}
   \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
-  \left[\frac{1}{R}\right] (r_{2}^2 - r_{1}^2) +
+  \left[\frac{1}{R}\right] (r_{2}^3 - r_{1}^3) +
   \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
-  \left[\frac{1}{R}\right] (r_{3}^2 - r_{2}^2) =
+  \left[\frac{1}{R}\right] (r_{3}^3 - r_{2}^3) =
   \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
-  \left[\frac{1}{R}\right] (r_{3}^2 - r_{1}^2)
+  \left[\frac{1}{R}\right] (r_{3}^3 - r_{1}^3)
 \end{equation}
 はりを固着した後の最大のせん断力は，
 \begin{equation}
   \label{eq:shear_after}
   \frac{2 E \Delta x}{3} \frac{\mathrm{d}}{\mathrm{d} x}
-  \left[\frac{1}{R}\right] (r_{3}^2 - r_{1}^2)
+  \left[\frac{1}{R}\right] (r_{3}^3 - r_{1}^3)
 \end{equation}
 式(\ref{eq:shear_before}),(\ref{eq:shear_after})の比較より，
 固着する前後ではりに生じるせん断力の最大値は等しい．
@@ -401,7 +401,8 @@ $y = 0$として，鉛直上向きに$y$軸をとる．
 \begin{equation}
   \dot{\boldsymbol{r}}(t) =
   \begin{pmatrix}
-    v \\ -\frac{\pi v}{L} \cos \frac{\pi v t}{L}
+    v \\
+    -\dot{a}_1(t) \sin \frac{\pi v t}{L} -\frac{\pi v}{L} a_1(t) \cos \frac{\pi v t}{L}
   \end{pmatrix}
 \end{equation}
 と表せる．
@@ -412,8 +413,9 @@ $y = 0$として，鉛直上向きに$y$軸をとる．
     + \frac{1}{2} M \left\| \dot{r} \right\|^2          \\
       & = \frac{mL}{4} \left(\dot{a}_1(t)\right)^2
     + \frac{M v^2}{2}
-    + \frac{M \pi^2 v^2}{2 L^2}
-    \left(a_1(t)\right)^2 \cos^2 \frac{\pi v t}{L}
+    + \frac{M}{2}
+    \left(\dot{a}_1(t) \sin \frac{\pi v t}{L}
+    + \frac{\pi v}{L} a_1(t) \cos \frac{\pi v t}{L}\right)^2
   \end{aligned}
 \end{equation}
 また，
@@ -433,36 +435,31 @@ $y = 0$として，鉛直上向きに$y$軸をとる．
 \begin{align}
   \frac{\mathrm{d}}{\mathrm{d} t}
   \left(\frac{\partial T}{\partial \dot{a}}\right)
-   & = \frac{\mathrm{d}}{\mathrm{d} t}
-  \left(\frac{m L}{2} \dot(a)(t)\right)
-  = \frac{1}{2} m L \ddot{a}(t)        \\
+   & = \left\{\frac{m L}{2} + \frac{M}{2}
+  \left(1 - \cos \frac{2 \pi v t}{L}\right)\right\} \ddot{a}_1(t)
+  + \frac{3 \pi M v}{2 L} \dot{a}_1(t) \sin \frac{2 \pi v t}{L}
+  L \frac{\pi^2 M v^2}{L^2} \cos \frac{2 \pi v t}{L} a_t(t)             \\
   \frac{\partial T}{\partial a_1}
-   & = \frac{M \pi^2 v^2}{L^2} a_1(t)
-  \cos^2 \frac{\pi v t}{L}             \\
+   & = \frac{\pi M v}{2 L} \sin \frac{2 \pi v t}{L} \dot{a}_1(t)
+  + \frac{\pi^2 M v^2}{2 L^2} \left(1 + \cos \frac{2 \pi v t}{L}\right) \\
   \frac{\partial V}{\partial a_1}
-   & = \frac{E I \pi^4}{2 L^3} a_1(t)
-  - \frac{2 m g L}{\pi}
+   & = \frac{\pi^4 E I}{2 L^3} a_1(t)
+  - \frac{2 m g L}{\pi} - M g \sin \frac{\pi v t}{L}
 \end{align}
 より，運動方程式は，
 \begin{equation}
-  \frac{1}{2} m L \ddot{a}_1 (t)
-  - \frac{M \pi^2 v^2}{L^2} a_1(t) \cos^2 \frac{\pi v t}{L}
-  + \frac{E I \pi^4}{2 L^3} a_1(t)
-  - \frac{2 m g L}{\pi}
-  - M g \sin \frac{\pi v t}{L} = 0
+  \begin{aligned}
+    \left\{\frac{m L}{2} \right. & + \left.\frac{M}{2}
+    \left(1 - \cos \frac{2 \pi v t}{L}\right)\right\} \ddot{a}_1(t)
+    + \frac{\pi M v}{L} \sin \frac{2 \pi v t}{L} \dot{a}_1(t)                                   \\
+                                 & + \left\{\frac{\pi^4 E I}{2 L^3} - \frac{\pi^2 M v^2}{2 L^2}
+    \left(1 - \cos \frac{2 \pi v t}{L}\right)\right\} a_1(t)
+    - \frac{2 m g L}{\pi} - M g \sin \frac{\pi v t}{L} = 0
+  \end{aligned}
 \end{equation}
 となる．
 
 \subsubsection{}
-(1)(b)と(2)(b)の運動方程式の違いは，
-\begin{equation}
-  \frac{M \pi^2 v^2}{L^2} a_1(t) \cos^2 \frac{\pi v t}{L}
-\end{equation}
-の項の有無である．
-この影響で，周期的に剛性の低下が生じる．
-\begin{equation}
-  \cos^2 \frac{\pi v t}{L} =
-  \frac{1}{2} \left(1 - \cos \frac{2 \pi v t}{L}\right)
-\end{equation}
-より，車の通過によって駆動される振動数の2倍の振動数をもつ高周波応答が生じる．
+(2)(b)の運動方程式では，振動数$2 \pi v/L$の振動を表す非線形項があり，
+これにより，車の通過で駆動される振動数の2倍の振動数をもつ高周波応答が生じる．
 \end{document}
